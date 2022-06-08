@@ -1,0 +1,121 @@
+/*Eventos*/
+*{
+    background-color: white;
+}
+
+main .titulo1{
+    text-align: center;
+    font-size: 300%;
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    padding-top: 3%;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    background-color: rgb(15, 32, 65); 
+}
+
+.contenedor-eventos{
+
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding: 4% 2%;
+    box-sizing: border-box;
+    background-color: rgb(15, 32, 65);
+}
+
+.box{
+    flex: 1;
+    overflow: hidden;
+    margin: 3px;
+    line-height: 0%;
+    box-shadow:0 20px 30px rgba(0, 0, 0, 0.5);
+    transition: all 500ms;
+}
+
+.box > img{
+    width: 200%;
+    height: calc(100% - 10vh);
+    object-fit: cover;
+    transition: all 500ms;
+}
+
+.box > span{
+    font-size: 35px;
+    font-family: sans-serif;
+    display: block;
+    text-align: center;
+    height: 10vh;
+    line-height: 0;
+    margin-top: 15%;
+}
+
+.box:hover{
+    flex: 50%;
+}
+
+.box:hover > img{
+    width: 100%;
+    height: 100%;
+}
+
+/*Noticias*/
+
+main{
+    width: 100%;
+    height: 100%;
+    letter-spacing: 0.03;
+    line-height: 1.6;
+    font-family: sans-serif;
+}
+
+.titulo{
+    text-align: center;
+    font-size: 300%;
+    color: black;
+    margin-top: 30px;
+    font-weight: 100;
+}
+
+.contenedor-noticias{
+    width: 100;
+    max-width: 1200px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.contenedor-noticias .cards{
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgb (0,0,0,0,2);
+    box-shadow:0 20px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    margin: 20px;
+    transition: all 0.25s;
+}
+
+.contenedor-noticias .cards:hover{
+    transform: translatey(-15px);
+    box-shadow: 0 12px 16px rgb (0,0,0,0,2);
+}
+
+.contenedor-noticias .cards img{
+    width: 330px;
+    height: 220px;
+}
+
+.contenedor-noticias .cards h4{
+    font-weight: 600;
+    text-align:center;
+}
+
+.contenedor-noticias .cards p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+    text-align:justify;
+}

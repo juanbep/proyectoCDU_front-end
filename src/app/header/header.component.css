@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+body{
+    background-size: 100vw 100vh;
+}
+.capa{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
+    top: 0;left: 0;
+}
+/*Estilos para el encabezado*/
+.header{
+    width: 100%;
+    height: 100px;
+    top: 0;left: 0;
+    background: rgba(255, 255, 255);
+}
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.container img{
+    margin-left: 35%;
+    max-width: 5%;
+     max-height: 5%;
+}
+
+.container .btn-menu, .logo{
+    float: left;
+    line-height:100px;
+}
+.container .btn-menu label{
+    color: rgb(15, 32, 65);
+    font-size: 25px;
+    cursor: pointer;
+}
+.logo h1{
+    color: rgb(15, 32, 65);
+    font-weight: 400;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.container .cdu{
+    float: right;
+    line-height: 100px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.container .cdu a{
+    display: inline-block;
+    padding: 15px;
+    line-height: normal;
+    text-decoration: none;
+    color: rgb(15, 32, 65);
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+.container .login{
+    float: right;
+    line-height: 100px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.container .login a{
+    display: inline-block;
+    padding: 15px;
+    line-height: normal;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    font-size: 15px;
+    margin-right: 5px;
+    background: rgba(175, 0, 0);
+}
+.container .login a:hover{
+    background: rgba(175, 0, 0, 0.541);
+    color: rgb(255, 255, 255);
+}
+/*Fin de Estilos para el encabezado*/
+
+/*Menù lateral*/
+#btn-menu{
+    display: none;
+}
+.container-menu{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.342);
+    width: 100%;
+    height: 100vh;
+    top: 0;left: 0;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#btn-menu:checked ~ .container-menu{
+    opacity: 1;
+    visibility: visible;
+}
+.cont-menu{
+    width: 100%;
+    max-width: 250px;
+    background: rgb(255, 255, 255);
+    height: 100vh;
+    position: relative;
+    transition: all 500ms ease;
+    transform: translateX(-100%);
+}
+
+.cont-menu h1{
+    padding: 1px;
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    color: rgb(15, 32, 65);
+    font-size: 20px;
+}
+
+#btn-menu:checked ~ .container-menu .cont-menu{
+    transform: translateX(0%);
+}
+.cont-menu nav{
+    transform: translateY(10%);
+}
+
+.cont-menu nav a{
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+    color: rgb(15, 32, 65);
+    border-left: 5px solid transparent;
+    transition: all 400ms ease;
+}
+.cont-menu nav a:hover{
+    color: rgba(175, 0, 0);
+    border-left: 5px solid rgba(175, 0, 0);
+    background: #1f1f1f27;
+}
+.cont-menu label{
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/*Fin de Menù lateral*/
