@@ -14,10 +14,10 @@ export class HeaderComponent implements OnInit {
 
   //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
   fillerNav=[
-    {name:"Reservar Espacios",route:"",icon:"home"},
-    {name:"Historial",route:"contacto",icon:"perm_contact_calendar"},
-    {name:"Horarios Fijos",route:"card",icon:"card_giftcard"},
-    {name:"Gestionar Escenarios",route:"tabs",icon:"card_giftcard"}
+    {name:"Reservar Espacios",route:"reservar_espacios",icon:"date_range"},
+    {name:"Historial",route:"contacto",icon:"history"},
+    {name:"Horarios Fijos",route:"card",icon:"schedule"},
+    {name:"Gestionar Escenarios",route:"tabs",icon:"view_compact"}
   
   ]
 

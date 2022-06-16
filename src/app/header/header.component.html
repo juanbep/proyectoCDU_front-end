@@ -1,11 +1,15 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
   
-  <mat-toolbar color="primary" class="example-toolbar">
+  <mat-toolbar class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">INICIO</h1>
+    <span class="example-spacer"></span>
+    <!--<h2 class="example-app-name">CENTRO DEPORTIVO UNIVERSITARIO</h2>-->
+    <button class="inicio-sesion-button" mat-raised-button>Iniciar Sesión</button>
   </mat-toolbar>
   
-  <mat-sidenav-container class="example-sidenav-container"[style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+  <mat-sidenav-container class="example-sidenav-container"[style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  [hasBackdrop]="true">
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'over'"
                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list>
@@ -17,8 +21,8 @@
       </mat-sidenav>
     
       <mat-sidenav-content>
-          <!--<router-outlet></router-outlet>-->
-          <app-home></app-home>
+          <router-outlet></router-outlet>
+          <app-footer></app-footer>
       </mat-sidenav-content>
     
   </mat-sidenav-container>

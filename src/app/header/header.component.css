@@ -13,9 +13,13 @@
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
     z-index: 2;
   }
-  
+
   h1.example-app-name {
-    margin-left: 8px;
+    margin-left: 5px;
+  }
+
+  h2.example-app-name {
+    padding-right: 5px;
   }
   
   .example-sidenav-container {
@@ -29,9 +33,29 @@
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
   }
-  mat-sidenav{
-      width: 20%;
+
+  .example-spacer {
+    flex: 1 1 auto;
   }
+
+  .inicio-sesion-button{
+    background-color: rgb(15, 32, 65);
+  }
+
+  mat-sidenav{
+    width: 20%;
+    background-color: rgb(15, 32, 65);
+  }
+ 
+  mat-sidenav-content{
+    background-color: white;
+  }
+
+  .mat-toolbar{
+    background: rgb(175, 0, 0);
+    color: #fff;
+  }
+
   .icono{
-      margin-right: 10px;
+    margin-right: 10px;
   }
