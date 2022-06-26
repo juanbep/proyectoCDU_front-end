@@ -1,1 +1,184 @@
-<p>calendario works!</p>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gestion Escenarios</title>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <link rel="stylesheet" href="calendario.component.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<!--ETIQUETA DE CONTENIDO O DE CUERPO-->
+
+<body>
+  <!--Creacion de Tabla-->
+  <div class="container">
+    <table border= "1" class="table table-hover">
+      <!--Divisiones-->
+      <thead>
+        <caption>Calendario</caption>
+        <tr class="filaPrincipal">
+          <th>Horas</th>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+          <th>Sábado</th>
+          <th>Domingo</th>
+        </tr>
+      </thead>
+      <!--Contenido-->
+      <tbody>
+        <tr>
+          <th>06:00 - 08:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>08:00 - 10:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>10:00 - 12:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>12:00 - 14:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>14:00 - 16:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>16:00 - 18:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>18:00 - 20:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>20:00 - 22:00</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="contenedor-reserva">
+    <div class="escenario">
+      <label class="form__label">Escenario:</label>
+      <select name="opcion_escenario">
+        <option value="value1" selected></option>
+        <option value="value2">Coliseo</option>
+        <option value="value3">Canchas Multifuncionales 1</option>
+        <option value="value4">Canchas Multifuncionales 2</option>
+        <option value="value5">Canchas Multifuncionales 3</option>
+        <option value="value6">Canchas Multifuncionales 4</option>
+        <option value="value7">Canchas Multifuncionales 5</option>
+        <option value="value8">Patinaje</option>
+        <option value="value9">Piscina</option>
+        <option value="value10">Cancha Futbol 11</option>
+      </select>
+    </div>
+    <div class="dias">
+      <label class="form__label">Días:</label>
+      <div class="form__input__container custom">
+        <input type="checkbox" id="l">
+        <label class="form__label" for="l">L</label>
+      </div>
+      <div class="form__input__container custom">
+        <input type="checkbox" id="mi">
+        <label class="form__label" for="mi">M</label>
+      </div>
+      <div class="form__input__container custom">
+        <input type="checkbox" id="m">
+        <label class="form__label" for="m">MI</label>
+      </div>
+      <div class="form__input__container custom">
+        <input type="checkbox" id="j">
+        <label class="form__label" for="j">J</label>
+      </div>
+      <div class="form__input__container custom">
+        <input type="checkbox" id="v">
+        <label class="form__label" for="v">V</label>
+      </div>
+      <div class="form__input__container custom">
+        <input type="checkbox" id="s">
+        <label class="form__label" for="s">S</label>
+      </div>
+      <div class="form__input__container custom">
+        <input type="checkbox" id="d">
+        <label class="form__label" for="d">D</label>
+      </div>
+    </div>
+    <div class="horario">
+      <label class="form__label">Desde:</label>
+      <select name="opcion_horario">
+        <option value="value1" selected></option>
+        <option value="value2">06:00 - 08:00</option>
+        <option value="value3">08:00 - 10:00</option>
+        <option value="value4">10:00 - 12:00</option>
+        <option value="value5">12:00 - 14:00</option>
+        <option value="value6">14:00 - 16:00</option>
+        <option value="value7">16:00 - 18:00</option>
+        <option value="value8">18:00 - 20:00</option>
+        <option value="value9">20:00 - 22:00</option>
+      </select>
+    </div>
+    <div>
+      <button id="btnReservar">Reservar</button>
+    </div>
+  </div>
+</body>
+
+</html>
+
