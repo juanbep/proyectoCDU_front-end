@@ -17,8 +17,8 @@ export class HeaderComponent implements OnInit {
     {name:"Reservar Espacios",route:"reservar_espacios",icon:"date_range"},
     {name:"Historial",route:"contacto",icon:"history"},
     {name:"Horarios Fijos",route:"card",icon:"schedule"},
-    {name:"Gestionar Escenarios",route:"tabs",icon:"view_compact"}
-  
+    {name:"Gestionar Escenarios",route:"gestion_escenarios",icon:"view_compact"}
+    
   ]
 
 

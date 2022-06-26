@@ -18,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule} from '@angular/material/list';
 import { MatButtonModule} from '@angular/material/button';
+import { CalendarioComponent } from './components/calendario/calendario.component';
+import { GestionEscenariosComponent } from './components/gestion-escenarios/gestion-escenarios.component';
 
 
 //import { AppRoutingModule } from './app-routing.module';
@@ -29,7 +31,9 @@ const appRoutes:Routes=[
   {path:'espacios_cdu', component:EspaciosCduComponent},
   {path:'espacios_diamante', component:EspaciosDiamanteComponent},
   {path:'reservar_espacios', component:ReservarEspaciosComponent},
-  {path:'canchas_cdu', component:CanchasComponent}
+  {path:'canchas_cdu', component:CanchasComponent},
+  {path:'calendario', component:CalendarioComponent},
+  {path:'gestion_escenarios', component:GestionEscenariosComponent}
 ];
 
 @NgModule({
@@ -41,7 +45,9 @@ const appRoutes:Routes=[
     CanchasComponent,
     HomeComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    CalendarioComponent,
+    GestionEscenariosComponent
   ],
   imports: [
     BrowserModule,
