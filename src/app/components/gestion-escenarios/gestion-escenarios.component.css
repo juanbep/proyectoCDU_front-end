@@ -1,0 +1,14 @@
+.div_caption{
+    background: linear-gradient(to right,  rgb(187, 1, 1), rgb(226, 12, 12) , rgb(165, 5, 5));
+}
+.tr_thead{
+    background: linear-gradient(to right,  rgb(187, 1, 1), rgb(226, 12, 12) , rgb(165, 5, 5));
+}
+.btn_nuevoEscenario{
+    border-right: 1px solid #041544;
+    background-color: #061f63;
+}
+.btn_editar{
+    border-right: 1px solid #041544;
+    background-color: #061f63;
+}
