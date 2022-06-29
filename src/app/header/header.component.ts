@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
   fillerNav=[
-    {name:"Reservar Espacios",route:"reservar_espacios",icon:"date_range"},
+    {name:"Reservar Espacios", route:'/reservar_espacios',icon:"date_range"},
     {name:"Historial",route:"contacto",icon:"history"},
     {name:"Horarios Fijos",route:"card",icon:"schedule"},
     {name:"Gestionar Escenarios",route:"gestion_escenarios",icon:"view_compact"}
