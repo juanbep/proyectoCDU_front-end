@@ -14,12 +14,15 @@
 
 <body>
   <!--Creacion de Tabla-->
-  <div class="container">
+  <div class="container"><br><br>
     <div class="table-responsive">
-      <table border="1" class="table table-hover">
-        <caption>Calendario</caption>
+      <h1 class="text-center">Calendario</h1>
+      <table border="1" class="table table-bordered text-center">
+        
         <!--Divisiones-->
-        <thead>
+        <thead> 
+          
+          <!--<tr>Calendario</tr>-->
           <tr class="filaPrincipal">
             <th>Horas</th>
             <th>Lunes</th>
@@ -117,9 +120,9 @@
       </table>
     </div>
   </div>
-  <div class="contenedor-reserva">
+  <div class="container btn btn-group mx-5">
     <div class="escenario">
-      <label class="form__label">Escenario:</label>
+      <label class="label-for">Escenario:</label>
       <select name="opcion_escenario">
         <option value="value1" selected></option>
         <option value="value2">Coliseo</option>
@@ -133,39 +136,39 @@
         <option value="value10">Cancha Futbol 11</option>
       </select>
     </div>
-    <div class="dias">
-      <label class="form__label">Días:</label>
-      <div class="form__input__container custom">
+    <div class="dias btn btn-group">
+      <label class="">Días:</label>
+      <div class="">
         <input type="checkbox" id="l">
-        <label class="form__label" for="l">L</label>
+        <label class="" for="l">L</label>
       </div>
-      <div class="form__input__container custom">
+      <div class="">
         <input type="checkbox" id="mi">
-        <label class="form__label" for="mi">M</label>
+        <label class="" for="mi">M</label>
       </div>
-      <div class="form__input__container custom">
+      <div class="">
         <input type="checkbox" id="m">
-        <label class="form__label" for="m">MI</label>
+        <label class="" for="m">MI</label>
       </div>
-      <div class="form__input__container custom">
+      <div class="">
         <input type="checkbox" id="j">
-        <label class="form__label" for="j">J</label>
+        <label class="" for="j">J</label>
       </div>
-      <div class="form__input__container custom">
+      <div class="">
         <input type="checkbox" id="v">
-        <label class="form__label" for="v">V</label>
+        <label class="" for="v">V</label>
       </div>
-      <div class="form__input__container custom">
+      <div class="">
         <input type="checkbox" id="s">
-        <label class="form__label" for="s">S</label>
+        <label class="" for="s">S</label>
       </div>
-      <div class="form__input__container custom">
+      <div class="">
         <input type="checkbox" id="d">
-        <label class="form__label" for="d">D</label>
+        <label class="" for="d">D</label>
       </div>
     </div>
-    <div class="horario">
-      <label class="form__label">Desde:</label>
+    <div class="btn btn-group">
+      <label class="">Desde:</label>
       <select name="opcion_horario">
         <option value="value1" selected></option>
         <option value="value2">06:00 - 08:00</option>
