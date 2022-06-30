@@ -87,6 +87,16 @@
 
 /*Noticias*/
 
+.btn-noticias{
+    background-color: rgb(15,32,65);
+}
+
+.button-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .card{
     color: black;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
