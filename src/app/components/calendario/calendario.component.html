@@ -1,6 +1,6 @@
 <div class="container "><br>
   <div class="table-responsive">
-    <h1 class="text-center">Calendario</h1>
+    <h1 class="text-center text-dark">Calendario</h1>
     <table border="1" class="table table-bordered text-center">
 
       <!--Divisiones-->
@@ -106,64 +106,70 @@
 </div>
 
 <div class="container text-center">
-  <div class="btn btn-group">
-    
-    <div class="row btn btn-group">
-      <div class="col-12">
-        <label>Dias:</label>
+  <div class="row col-12">
+    <div class="col col-md-6 col-12">
+      <div class="row btn btn-group">
+        <div class="col-12">
+          <label>Dias:</label>
+        </div>
+        <div class="col-12">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">L</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">M</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">M</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">J</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">V</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">S</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">D</label>
+          </div>
+      
+        </div>
       </div>
-      <div class="col-12">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">L</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-          <label class="form-check-label" for="inlineCheckbox2">M</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">M</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-          <label class="form-check-label" for="inlineCheckbox2">J</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">V</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-          <label class="form-check-label" for="inlineCheckbox2">S</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">D</label>
-        </div>
-    
+    </div>
+    <div class="col col-md-2 col-12 mx-md-2">
+      <div class="row my-4 ancho">
+        <select class="form-select" aria-label="Default select example">
+          <option  selected>Desde</option>
+          <option *ngFor="let item of listHoras" value="1">{{item}}:00</option>
+        </select>
       </div>
+      
     </div>
-    <div class="row mx-3 my-5 ancho">
-      <select class="form-select" aria-label="Default select example">
-        <option  selected>Desde</option>
-        <option *ngFor="let item of listHoras" value="1">{{item}}:00</option>
-      </select>
+    <div class="col col-md-2 col-12">
+      <div class="row my-4 ancho">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Hasta</option>
+          <option *ngFor="let item of listHoras" value="1">{{item}}:00</option>
+        </select>
+      </div>
+      
     </div>
-    <div class="row my-5 ancho">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Hasta</option>
-        <option *ngFor="let item of listHoras" value="1">{{item}}:00</option>
-      </select>
-    </div>
-
   </div>
 </div>
 
 <div class="container text-center my-3">
-  <div class="btn btn-group">
+  <div class="btn">
     <button type="button" class="btn btn-primary btn-sm">Agregar</button>
-    <button type="button" class="btn btn-secondary btn-sm mx-5">Editar</button>
+    <button type="button" class="btn btn-secondary btn-sm mx-3">Editar</button>
     <button type="button" class="btn btn-secondary btn-sm">Eliminar</button>
   </div>
 </div>
