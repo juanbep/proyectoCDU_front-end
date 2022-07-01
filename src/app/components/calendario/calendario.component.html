@@ -107,74 +107,56 @@
 
 <div class="container text-center">
   <div class="btn btn-group">
-
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
+    
+    <div class="row btn btn-group">
+      <div class="col-12">
+        <label>Dias:</label>
       </div>
-    </div>
-
-    <div class="container">
-      <label>Dias:</label>
-      <div class="row">
-        <div class="col">
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" value id="check1">
-            <label for="check1" class="form-check-label">L</label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" value id="check2">
-            <label for="check2" class="form-check-label">M</label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" value id="check3">
-            <label for="check3" class="form-check-label">MI</label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" value id="check4">
-            <label for="check4" class="form-check-label">J</label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" value id="check5">
-            <label for="check5" class="form-check-label">V</label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" value id="check6">
-            <label for="check6" class="form-check-label">S</label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" value id="check7">
-            <label for="check7" class="form-check-label">D</label>
-          </div>
+      <div class="col-12">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">L</label>
         </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+          <label class="form-check-label" for="inlineCheckbox2">M</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">M</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+          <label class="form-check-label" for="inlineCheckbox2">J</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">V</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+          <label class="form-check-label" for="inlineCheckbox2">S</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">D</label>
+        </div>
+    
       </div>
     </div>
-
-    <div class="">
-      <label class="">Desde:</label>
-      <select name="opcion_horario">
-        <option value="value1" selected></option>
-        <option value="value2">06:00 - 08:00</option>
-        <option value="value3">08:00 - 10:00</option>
-        <option value="value4">10:00 - 12:00</option>
-        <option value="value5">12:00 - 14:00</option>
-        <option value="value6">14:00 - 16:00</option>
-        <option value="value7">16:00 - 18:00</option>
-        <option value="value8">18:00 - 20:00</option>
-        <option value="value9">20:00 - 22:00</option>
+    <div class="row mx-3 my-5 ancho">
+      <select class="form-select" aria-label="Default select example">
+        <option  selected>Desde</option>
+        <option *ngFor="let item of listHoras" value="1">{{item}}:00</option>
       </select>
     </div>
+    <div class="row my-5 ancho">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Hasta</option>
+        <option *ngFor="let item of listHoras" value="1">{{item}}:00</option>
+      </select>
+    </div>
+
   </div>
 </div>
 
