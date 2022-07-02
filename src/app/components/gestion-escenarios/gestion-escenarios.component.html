@@ -1,41 +1,43 @@
 <!--Creacion de Tabla-->
-<div Class="table-responsive" class="text-center">
-    <!--<caption class="text-center">Gestionar Escenarios</caption>-->
-    <br>
+<div class="container ">
+    <div Class="table-responsive" class="text-center">
+        <!--<caption class="text-center">Gestionar Escenarios</caption>-->
+        <br>
 
-    <div class="row vh 100 justify-content-around align-items-center">
-        <div class="col-sm-6 rounded justify-content-center table-bordered div_caption">
-            <h2 class="text-center font-weight text-white">Gestionar escenarios</h2>
+        <div class="row vh 100 justify-content-around align-items-center">
+            <div class="col-sm-6 rounded justify-content-center table-bordered div_caption">
+                <h2 class="text-center font-weight text-white">Gestionar escenarios</h2>
+            </div>
+            <div class="col-sm-2 ">
+                <button type="button" href="formCrearGestEsce"
+                    class="btn_nuevoEscenario text-white font-weight rounded">Nuevo escenario</button>
+            </div>
         </div>
-        <div class="col-sm-2 ">
-            <button type="button" href="formCrearGestEsce"
-                class="btn_nuevoEscenario text-white font-weight rounded">Nuevo escenario</button>
-        </div>
+        <br>
+        <table class="table table-responsive table-bordered table-hover">
+            <!--Divisiones-->
+            <thead>
+                <tr class=" tr_thead  text-white font-weight ">
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Imagen</th>
+                    <th>Estado</th>
+                    <th>Actualizar</th>
+                </tr>
+            </thead>
+            <!--Contenido-->
+            <tbody>
+                <tr class="text-weight">
+                    <td>Cancha 1</td>
+                    <td>cancha sintética 1</td>
+                    <td><img src="../assets/futsal.jpg" alt=""></td>
+                    <td>habilitado</td>
+                    <td>
+                        <button class="acciones" class=" btn_editar text-white font-weight rounded"
+                            href="formEditararGestEsce"> Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <br>
-    <table class="table table-responsive table-bordered table-hover">
-        <!--Divisiones-->
-        <thead>
-            <tr class=" tr_thead  text-white font-weight ">
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Imagen</th>
-                <th>Estado</th>
-                <th>Actualizar</th>
-            </tr>
-        </thead>
-        <!--Contenido-->
-        <tbody>
-            <tr class="text-weight">
-                <td>Cancha 1</td>
-                <td>cancha sintética 1</td>
-                <td><img src="../assets/futsal.jpg" alt=""></td>
-                <td>habilitado</td>
-                <td>
-                    <button class="acciones" class=" btn_editar text-white font-weight rounded"
-                        href="formEditararGestEsce"> Editar</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
