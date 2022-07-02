@@ -12,7 +12,7 @@
   [hasBackdrop]="true">
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'over'"
                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-        <mat-nav-list>
+        <mat-nav-list mat-button (click)="snav.toggle()">
           
           <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav">
               <mat-icon class="icono">{{nav.icon}}</mat-icon>

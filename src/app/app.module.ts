@@ -20,6 +20,7 @@ import { MatListModule} from '@angular/material/list';
 import { MatButtonModule} from '@angular/material/button';
 import { CalendarioComponent } from './components/calendario/calendario.component';
 import { GestionEscenariosComponent } from './components/gestion-escenarios/gestion-escenarios.component';
+import { FormEditarGestionEscenarioComponent } from './components/form-editar-gestion-escenario/form-editar-gestion-escenario.component';
 
 
 //import { AppRoutingModule } from './app-routing.module';
@@ -47,7 +48,8 @@ const appRoutes:Routes=[
     FooterComponent,
     HeaderComponent,
     CalendarioComponent,
-    GestionEscenariosComponent
+    GestionEscenariosComponent,
+    FormEditarGestionEscenarioComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,77 @@
+/*Margenes*/
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+    color: black;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder; 
+}
+
+body{
+    background-color: white;
+    display: flex;
+    width: 100%;
+    height:auto;
+    padding: 4% 2%;
+    box-sizing: border-box;
+}
+
+form{
+    box-shadow: 0px 0px 6px 4px rgb(153, 153, 153);
+    background-color: #dce2e4;
+    padding: 47px;
+    margin: auto
+}
+
+input{
+    background-color: #ffffff;
+    padding: 10px 24px;
+    margin: 27px 20px;
+    width: 96%;
+    border: none;
+    border-inline: none;
+}
+
+select{
+    background-color: #ffffff;
+    padding: 10px 24px;
+    margin: 27px 20px;
+    width: 96%;
+    border: none;
+    border-inline: none;
+}
+textarea{
+    background-color: #ffffff;
+    padding: 10px 24px;
+    margin: 27px 20px;
+    width: 96%;
+    border: none;
+    border-inline: none;
+}
+
+button{
+    background-color: rgb(175, 0, 0);
+    color: white;
+    margin: -2px 60px;
+    padding: 13px 37px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border: none;
+    margin-top: 4px;
+}
+button:hover{
+    background: rgba(175, 0, 0, 0.541);
+    color: rgb(255, 255, 255);
+    padding-bottom: 5px;
+}
+
+#btnGuardar {
+    background-color: rgb(15, 32, 65);
+    color: rgb(255, 255, 255);
+}
+
+#btnGuardar:hover{
+    background: rgba(15, 32, 65, 0.541);
+    color: rgb(255, 255, 255);
+}
