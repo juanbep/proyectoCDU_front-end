@@ -34,7 +34,8 @@ const appRoutes:Routes=[
   {path:'reservar_espacios', component:ReservarEspaciosComponent},
   {path:'canchas_cdu', component:CanchasComponent},
   {path:'calendario', component:CalendarioComponent},
-  {path:'gestion_escenarios', component:GestionEscenariosComponent}
+  {path:'gestion_escenarios', component:GestionEscenariosComponent},
+  {path: 'form_gestion_escenarios', component:FormEditarGestionEscenarioComponent}
 ];
 
 @NgModule({
