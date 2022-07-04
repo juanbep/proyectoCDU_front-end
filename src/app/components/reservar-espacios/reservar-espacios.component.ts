@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from 'src/app/interfaces/categoria';
-import { CategoriaService } from 'src/app/services/categoria.service';
 
 @Component({
   selector: 'app-reservar-espacios',
@@ -9,14 +7,9 @@ import { CategoriaService } from 'src/app/services/categoria.service';
 })
 export class ReservarEspaciosComponent implements OnInit {
 
-  categorias: Categoria[]=[];
-
-  constructor(private categoriaservice:CategoriaService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.categoriaservice.getCategoriasInfo().subscribe(
-      e => {this.categorias=e; console.log(this.categorias)}
-    );
   }
 
 }

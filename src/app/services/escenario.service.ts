@@ -16,9 +16,14 @@ export class EscenarioService {
     return this.http.get<Escenario[]>(this.url)
   }
 
+  //Método para obtener un solo escenario
+  getEscenario(id:string):Observable<Escenario>{
+    return this.http.get<Escenario>(this.url+'/'+id)
+  }
+
   //Método para crear un nuevo escenario
   create(escenario: Escenario):Observable<Escenario>{
-    return this.http.post<Escenario>(this.url, Escenario);
+    return this.http.post<Escenario>(this.url, escenario);
   }
 
   //Método para actualizar un escenario

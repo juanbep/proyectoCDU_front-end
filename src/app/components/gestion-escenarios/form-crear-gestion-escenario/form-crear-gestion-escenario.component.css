@@ -193,7 +193,7 @@ main.publicar--empleo input[type='file'] {
 		margin-bottom: 40px;
 	}
 	.form-file__result {
-		height: 250px;
+		height: 200px;
 	}
 	.form-file__result::after {
 		content: 'Arrastra o dale clic para elegir tu imagen.';
