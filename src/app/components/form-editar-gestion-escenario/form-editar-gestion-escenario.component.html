@@ -2,7 +2,7 @@
     <form role="form">
         <div class="form-group">
             <label for="Nombre_escenario">Nombre escenario</label>
-            <input type="Nombre" class="form-control" id="Nombre_escenario" placeholder={{cancha.escenarioNombre}}
+            <input type="text" class="form-control"   value={{cancha.escenarioNombre}} id="Nombre_escenario"  [(ngModel)]="cancha.escenarioNombre"
                 required>
         </div>
         <div class="form-group">
@@ -18,11 +18,12 @@
         </div>
         <div class="textarea">
             <label for="Descripcion">Descripcion</label>
-            <textarea rows="8" cols="50" placeholder={{cancha.escenarioDescripcion}} name="descripcion"
+            <textarea rows="8" cols="50" placeholder={{cancha.escenarioDescripcion}} name="descripcion" [(ngModel)]="cancha.escenarioDescripcion"
                 required></textarea>
         </div>
         <div class="text-center">
-            <button type="button" class="btn btnGuardar text-white font-weight rounded">GUARDAR</button>
+
+            <button type="button" class="btn btnGuardar text-white font-weight rounded" (click)='create()'>GUARDAR</button>
             <button type="button" class="btn btnCancelar text-white font-weight rounded"
                 onclick="location.href='gestion_escenarios'">CANCELAR</button>
         </div>

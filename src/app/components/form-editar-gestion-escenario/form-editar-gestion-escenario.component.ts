@@ -30,6 +30,9 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
       }
     );
   }
+  create():void{
+    console.log(this.cancha)
+  }
   editarEscenario(): void {
     this.escenarioservice.update(this.cancha).subscribe(
       res=> this.route.navigate(['/escenarios'])
