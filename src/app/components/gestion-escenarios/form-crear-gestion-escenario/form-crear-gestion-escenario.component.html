@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container"> <br>
     <main class="publicar--empleo">
         <section class="main__form">
             <h2 class="main__form--title">Crear Escenario</h2>
@@ -9,7 +9,8 @@
                         type="text"
                         name="title"
                         id="title"
-                        placeholder="Titulo de publicación"
+                        placeholder="Titulo Escenario"
+                        [(ngModel)]="escenario.escenarioNombre"
                         required
                     />
                 </div>
@@ -18,29 +19,45 @@
                     <textarea
                         name="description"
                         id="description"
-                        placeholder="Describe tu empleo"
+                        placeholder="Descripcion del Escenario"
                         name="description"
+                        [(ngModel)]="escenario.escenarioDescripcion"
                         required
                     ></textarea>
+                </div>
+                
+                <div class="col col-md-12 col-12">
+                    <div class="row my-2 mx-1 ancho">
+                        <select class="form-select" aria-label="Default select example" [(ngModel)]="escenario.escenarioEstado">
+                            <option selected >Habilitado</option>
+                            <option value="1">Deshabilitado</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-file">
                     <div class="form-file__action">
-
-                        <input type="file" name="image" id="image" required/>
+                        <input 
+                        type="file" 
+                        name="imagen" 
+                        value="" 
+                        placeholder="Cargar la imagen" 
+                        [(ngModel)]="escenario.escenarioFoto" 
+                        required>
                     </div>
+
                     <div class="form-file__result" id="result-image">
                         <img id="img-result" alt=""/>
                     </div>
                 </div>
 
-                <div class="container text-center my-3">
+                <div class="container text-center my-4">
                     <div class="btn">
-                      <button type="button" class="btn btn-primary btn-lg">Agregar</button>
-                      <button type="button" class="btn btn-secondary btn-lg mx-3" onclick="location.href='gestion_escenarios'">Cancelar</button>
-                    </div>
-                  </div>
+                        <button type="button" class="btn btn-primary btn-lg" (click)="create()">Agregar</button>
+                        <button type="button" class="btn btn-secondary btn-lg mx-3" onclick="location.href='gestion_escenarios'">Cancelar</button>
+                    </div>    
+                </div>
             </form>
         </section>
     </main>
-</div>
+</div><br><br>
