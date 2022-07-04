@@ -9,8 +9,9 @@
                 <h2 class="text-center font-weight text-white">Gestionar escenarios</h2>
             </div>
             <div class="col-sm-2 ">
-                <a href="form_crear_escenarios" class="btn btn_editar text-white font-weight rounded" role="button" aria-disabled="true">Nuevo escenario</a>
-               <!-- <button type="button" href=""
+                <a href="form_crear_escenarios" class="btn btn_editar text-white font-weight rounded" role="button"
+                    aria-disabled="true">Nuevo escenario</a>
+                <!-- <button type="button" href=""
                     class="btn_nuevoEscenario text-white font-weight rounded">Nuevo escenario</button>-->
             </div>
         </div>
@@ -31,7 +32,6 @@
                 <tr class="text-weight" *ngFor="let escenario of escenarios">
                     <td>{{escenario.escenarioNombre}}</td>
                     <td>{{escenario.escenarioDescripcion}}</td>
-<<<<<<< Updated upstream
                     <!--<td>{{escenario.escenarioFoto}}<img src="../assets/images/espacios_cdu/imagenPrueba.png" class="img-fluid rounded " alt="Responsive image"></td>-->
                     <td>
 
@@ -67,12 +67,6 @@
                     <td>
                         <a href="form_gestion_escenarios" class="btn btn_editar text-white font-weight rounded"
                             role="button" aria-disabled="true" [routerLink]="['/form_gestion_escenarios/form', escenario.escenarioNombre]" >Editar</a>
-=======
-                    <td>{{escenario.escenarioFoto}}<img src="../assets/images/espacios_cdu/imagenPrueba.png" class="img-fluid rounded " alt="Responsive image"></td>
-                    <td>{{escenario.escenarioEstado}}</td>
-                    <td>
-                        <a href="form_gestion_escenarios" class="btn btn_editar text-white font-weight rounded" role="button" aria-disabled="true">Editar</a>
->>>>>>> Stashed changes
                     </td>
                 </tr>
             </tbody>

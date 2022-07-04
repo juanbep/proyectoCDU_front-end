@@ -1,8 +1,6 @@
 /* footer */
-
 .container-footer{
-
-    position: absolute;
+    display: flex;
     width: 100%;
     height: auto;
     justify-content: space-evenly;
