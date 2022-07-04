@@ -10,13 +10,15 @@ import { EscenarioService } from 'src/app/services/escenario.service';
 export class GestionEscenariosComponent implements OnInit {
 
   escenarios: Escenario[]=[];
-
+  
   constructor(private escenarioservice:EscenarioService) { }
 
   ngOnInit(): void {
     this.escenarioservice.getEscenariosInfo().subscribe(
       e => {this.escenarios=e; console.log(this.escenarios)}
     );
+    
   }
+  
 
 }
