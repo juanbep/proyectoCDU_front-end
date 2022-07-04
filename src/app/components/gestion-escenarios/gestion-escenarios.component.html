@@ -9,8 +9,9 @@
                 <h2 class="text-center font-weight text-white">Gestionar escenarios</h2>
             </div>
             <div class="col-sm-2 ">
-                <a href="form_crear_escenarios" class="btn btn_editar text-white font-weight rounded" role="button" aria-disabled="true">Nuevo escenario</a>
-               <!-- <button type="button" href=""
+                <a href="form_crear_escenarios" class="btn btn_editar text-white font-weight rounded" role="button"
+                    aria-disabled="true">Nuevo escenario</a>
+                <!-- <button type="button" href=""
                     class="btn_nuevoEscenario text-white font-weight rounded">Nuevo escenario</button>-->
             </div>
         </div>
@@ -31,10 +32,41 @@
                 <tr class="text-weight" *ngFor="let escenario of escenarios">
                     <td>{{escenario.escenarioNombre}}</td>
                     <td>{{escenario.escenarioDescripcion}}</td>
-                    <td>{{escenario.escenarioFoto}}<img src="../assets/images/espacios_cdu/imagenPrueba.png" class="img-fluid rounded " alt="Responsive image"></td>
+                    <!--<td>{{escenario.escenarioFoto}}<img src="../assets/images/espacios_cdu/imagenPrueba.png" class="img-fluid rounded " alt="Responsive image"></td>-->
+                    <td>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn_editar  text-white font-weight" data-toggle="modal"
+                            data-target="#exampleModalCenter">
+                            visualizar imagen
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Imagen de escenario</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ><img src="" class="img-rounded" alt="Cinque Terre" width="304" height="236" />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                     <td>{{escenario.escenarioEstado}}</td>
                     <td>
-                        <a href="form_gestion_escenarios" class="btn btn_editar text-white font-weight rounded" role="button" aria-disabled="true">Editar</a>
+                        <a href="form_gestion_escenarios" class="btn btn_editar text-white font-weight rounded"
+                            role="button" aria-disabled="true">Editar</a>
                     </td>
                 </tr>
             </tbody>
