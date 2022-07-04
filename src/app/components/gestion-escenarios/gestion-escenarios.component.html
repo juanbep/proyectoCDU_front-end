@@ -28,11 +28,11 @@
             </thead>
             <!--Contenido-->
             <tbody>
-                <tr class="text-weight">
-                    <td>Cancha 1</td>
-                    <td>cancha sintética 1</td>
-                    <td><img src="../assets/images/espacios_cdu/imagenPrueba.png" class="img-fluid rounded" alt="Responsive image"></td>
-                    <td>habilitado</td>
+                <tr class="text-weight" *ngFor="let escenario of escenarios">
+                    <td>{{escenario.escenarioNombre}}</td>
+                    <td>{{escenario.escenarioDescripcion}}</td>
+                    <td>{{escenario.escenarioFoto}}<img src="../assets/images/espacios_cdu/imagenPrueba.png" class="img-fluid rounded " alt="Responsive image"></td>
+                    <td>{{escenario.escenarioEstado}}</td>
                     <td>
                         <a href="form_gestion_escenarios" class="btn btn_editar text-white font-weight rounded" role="button" aria-disabled="true">Editar</a>
                     </td>

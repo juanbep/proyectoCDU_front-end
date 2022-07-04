@@ -1,14 +1,15 @@
 <div class="container">
-    <form role="form">
+    <form role="form" *ngFor="let escenario of escenarios">
         <div class="form-group">
             <label for="Nombre_escenario">Nombre escenario</label>
-            <input type="Nombre" class="form-control" id="Nombre_escenario" placeholder="Nombre" required>
+            <input type="Nombre" class="form-control" id="Nombre_escenario" placeholder={{escenario.escenarioNombre}}
+                required>
         </div>
         <div class="form-group">
             <label for="Estado">Estado</label>
             <select name="opcion">
-                <option value="value1" selected>Habilitado</option>
-                <option value="value2">Inhabilitado</option>
+                <option value="value1" selected>{{escenario.escenarioEstado}}</option>
+                <option value="value2" selected>{{escenario.escenarioEstado}}</option>
             </select>
         </div>
         <div class="form-group">
@@ -17,7 +18,8 @@
         </div>
         <div class="textarea">
             <label for="Descripcion">Descripcion</label>
-            <textarea rows="8" cols="50" placeholder="Descripcion" name="descripcion" required></textarea>
+            <textarea rows="8" cols="50" placeholder={{escenario.escenarioDescripcion}} name="descripcion"
+                required></textarea>
         </div>
         <div class="text-center">
             <button type="button" class="btn btnGuardar text-white font-weight rounded">GUARDAR</button>

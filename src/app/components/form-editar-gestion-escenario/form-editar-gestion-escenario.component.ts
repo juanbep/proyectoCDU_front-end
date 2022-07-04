@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Escenario } from 'src/app/interfaces/escenario';
+import { EscenarioService } from 'src/app/services/escenario.service';
 
 @Component({
   selector: 'app-form-editar-gestion-escenario',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormEditarGestionEscenarioComponent implements OnInit {
 
-  constructor() { }
+  escenarios: Escenario[]=[];
+  constructor(private escenarioservice:EscenarioService) { }
 
   ngOnInit(): void {
+    this.escenarioservice.getEscenariosInfo().subscribe(
+      e => {this.escenarios=e; console.log(this.escenarios)}
+    );
   }
 
 }
