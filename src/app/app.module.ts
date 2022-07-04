@@ -21,6 +21,7 @@ import { MatButtonModule} from '@angular/material/button';
 import { CalendarioComponent } from './components/calendario/calendario.component';
 import { GestionEscenariosComponent } from './components/gestion-escenarios/gestion-escenarios.component';
 import { FormEditarGestionEscenarioComponent } from './components/form-editar-gestion-escenario/form-editar-gestion-escenario.component';
+import { FormCrearGestionEscenarioComponent} from './components/gestion-escenarios/form-crear-gestion-escenario/form-crear-gestion-escenario.component';
 
 
 //import { AppRoutingModule } from './app-routing.module';
@@ -35,7 +36,8 @@ const appRoutes:Routes=[
   {path:'canchas_cdu', component:CanchasComponent},
   {path:'calendario', component:CalendarioComponent},
   {path:'gestion_escenarios', component:GestionEscenariosComponent},
-  {path: 'form_gestion_escenarios', component:FormEditarGestionEscenarioComponent}
+  {path:'form_gestion_escenarios', component:FormEditarGestionEscenarioComponent},
+  {path:'form_crear_escenarios', component:FormCrearGestionEscenarioComponent}
 ];
 
 @NgModule({
@@ -50,7 +52,8 @@ const appRoutes:Routes=[
     HeaderComponent,
     CalendarioComponent,
     GestionEscenariosComponent,
-    FormEditarGestionEscenarioComponent
+    FormEditarGestionEscenarioComponent,
+    FormCrearGestionEscenarioComponent
   ],
   imports: [
     BrowserModule,
