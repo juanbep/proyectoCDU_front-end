@@ -8,7 +8,7 @@ import { EscenarioService } from 'src/app/services/escenario.service';
   styleUrls: ['./gestion-escenarios.component.css']
 })
 export class GestionEscenariosComponent implements OnInit {
-
+  
   escenarios: Escenario[]=[];
   
   constructor(private escenarioservice:EscenarioService) { }

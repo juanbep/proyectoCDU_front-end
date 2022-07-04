@@ -36,9 +36,9 @@
                     <td>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn_editar  text-white font-weight" data-toggle="modal"
+                        <button type="button" class="btn btn_editar text-white font-weight" data-toggle="modal"
                             data-target="#exampleModalCenter">
-                            visualizar imagen
+                            ver imagen de escenario
                         </button>
 
                         <!-- Modal -->
@@ -47,17 +47,17 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Imagen de escenario</h5>
+                                        <h5 class="modal-title" id="exampleModalLongTitle">imagen de escenario</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        ><img src="" class="img-rounded" alt="Cinque Terre" width="304" height="236" />
+                                        ...
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
+                                            data-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                     <td>{{escenario.escenarioEstado}}</td>
                     <td>
                         <a href="form_gestion_escenarios" class="btn btn_editar text-white font-weight rounded"
-                            role="button" aria-disabled="true">Editar</a>
+                            role="button" aria-disabled="true" [routerLink]="['/form_gestion_escenarios/form', escenario.escenarioNombre]" >Editar</a>
                     </td>
                 </tr>
             </tbody>

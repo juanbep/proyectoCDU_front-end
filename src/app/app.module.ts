@@ -36,7 +36,7 @@ const appRoutes:Routes=[
   {path:'canchas_cdu', component:CanchasComponent},
   {path:'calendario', component:CalendarioComponent},
   {path:'gestion_escenarios', component:GestionEscenariosComponent},
-  {path:'form_gestion_escenarios', component:FormEditarGestionEscenarioComponent},
+  {path:'form_gestion_escenarios/form/:id', component:FormEditarGestionEscenarioComponent},
   {path:'form_crear_escenarios', component:FormCrearGestionEscenarioComponent}
 ];
 
