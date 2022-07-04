@@ -1,22 +1,28 @@
-    <!--<link rel="stylesheet" href="gestion-escenario.component">-->
-    
-    <form action="?c=Producto&a=Guardar" method="POST">
-        <div>
-            <input type="text" name="nombre" value="" placeholder="Nombre de escenario" required>
+<div class="container">
+    <form role="form">
+        <div class="form-group">
+            <label for="Nombre_escenario">Nombre escenario</label>
+            <input type="Nombre" class="form-control" id="Nombre_escenario" placeholder="Nombre" required>
         </div>
-        <select name="opcion">
-            <option value="value1" selected>Habilitado</option>
-            <option value="value2">Inhabilitado</option>
-        </select>
-        <div>
-            <input type="file" name="imagen" value="" placeholder="Cargar la imagen" required>
+        <div class="form-group">
+            <label for="Estado">Estado</label>
+            <select name="opcion">
+                <option value="value1" selected>Habilitado</option>
+                <option value="value2">Inhabilitado</option>
+            </select>
         </div>
-        <div class="descripcion">
+        <div class="form-group">
+            <label for="ejemplo_archivo_1">Adjuntar un archivo</label>
+            <input type="file" id="ejemplo_archivo_1">
+        </div>
+        <div class="textarea">
+            <label for="Descripcion">Descripcion</label>
             <textarea rows="8" cols="50" placeholder="Descripcion" name="descripcion" required></textarea>
         </div>
-        <div>
-            <button class="acciones" class="btnGuardar text-white font-weight rounded">GUARDAR</button>
-            <button class="acciones" class="btnCancelar text-white font-weight rounded"
-                onclick="location.href='gestionar'">CANCELAR</button>
+        <div class="text-center">
+            <button type="button" class="btn btnGuardar text-white font-weight rounded">GUARDAR</button>
+            <button type="button" class="btn btnCancelar text-white font-weight rounded"
+                onclick="location.href='gestion_escenarios'">CANCELAR</button>
         </div>
     </form>
+</div>
