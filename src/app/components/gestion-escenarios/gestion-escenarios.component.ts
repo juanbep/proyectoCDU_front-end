@@ -15,7 +15,7 @@ export class GestionEscenariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.escenarioservice.getEscenariosInfo().subscribe(
-      e => this.escenarios=e
+      e => {this.escenarios=e; console.log(this.escenarios)}
     );
   }
 
