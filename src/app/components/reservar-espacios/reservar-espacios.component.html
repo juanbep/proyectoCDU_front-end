@@ -1,26 +1,15 @@
 <h1 class="text-center">RESERVAR ESPACIOS</h1>
 
     <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-12 col-md-6 col-lg-4">
+        <div class="row justify-content-md-center" >
+            <div class="col-12 col-md-6 col-lg-4" *ngFor="let categoria of categorias">
                 <div class="card">
                     <a routerLink="/espacios_cdu" class="stretched-link">
                         <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="COLISEO">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title text-center">TULCAN</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum odio in felis mattis feugiat. In rhoncus libero magna, ultricies condimentum tortor tempor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <a routerLink="/espacios_diamante" class="stretched-link">
-                        <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="COLISEO">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">EL DIAMANTE</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum odio in felis mattis feugiat. In rhoncus libero magna, ultricies condimentum tortor tempor sit amet.</p>
+                        <h5 class="card-title text-center">{{categoria.categoriaNombre}}</h5>
+                        <p class="card-text">{{categoria.categoriaDescripcion}}</p>
                     </div>
                 </div>
             </div>
