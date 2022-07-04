@@ -6,8 +6,8 @@ describe('FormCrearGestionEscenarioComponent', () => {
   let component: FormCrearGestionEscenarioComponent;
   let fixture: ComponentFixture<FormCrearGestionEscenarioComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(async() => {
+    TestBed.configureTestingModule({
       declarations: [ FormCrearGestionEscenarioComponent ]
     })
     .compileComponents();
