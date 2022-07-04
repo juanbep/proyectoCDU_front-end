@@ -1,15 +1,15 @@
 <div class="container">
-    <form role="form" *ngFor="let escenario of escenarios">
+    <form role="form">
         <div class="form-group">
             <label for="Nombre_escenario">Nombre escenario</label>
-            <input type="Nombre" class="form-control" id="Nombre_escenario" placeholder={{escenario.escenarioNombre}}
+            <input type="Nombre" class="form-control" id="Nombre_escenario" placeholder={{cancha.escenarioNombre}}
                 required>
         </div>
         <div class="form-group">
             <label for="Estado">Estado</label>
             <select name="opcion">
-                <option value="value1" selected>{{escenario.escenarioEstado}}</option>
-                <option value="value2" selected>{{escenario.escenarioEstado}}</option>
+                <option value="value1" selected>{{cancha.escenarioEstado}}</option>
+                <option value="value2" selected>{{cancha.escenarioEstado}}</option>
             </select>
         </div>
         <div class="form-group">
@@ -18,7 +18,7 @@
         </div>
         <div class="textarea">
             <label for="Descripcion">Descripcion</label>
-            <textarea rows="8" cols="50" placeholder={{escenario.escenarioDescripcion}} name="descripcion"
+            <textarea rows="8" cols="50" placeholder={{cancha.escenarioDescripcion}} name="descripcion"
                 required></textarea>
         </div>
         <div class="text-center">
