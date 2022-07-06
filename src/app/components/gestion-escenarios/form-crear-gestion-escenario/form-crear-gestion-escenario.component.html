@@ -3,14 +3,14 @@
         <section class="main__form">
             <h2 class="main__form--title">Crear Escenario</h2>
 
-            <form action="#" class="" enctype="multipart/form-data">
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <input
                         type="text"
                         name="title"
                         id="title"
                         placeholder="Titulo Escenario"
-                        [(ngModel)]="escenario.escenarioNombre"
+                        formControlName="nombreEscenario"
                         required
                     />
                 </div>
@@ -21,14 +21,14 @@
                         id="description"
                         placeholder="Descripcion del Escenario"
                         name="description"
-                        [(ngModel)]="escenario.escenarioDescripcion"
+                        formControlName="descripcionEscenario"
                         required
                     ></textarea>
                 </div>
                 
                 <div class="col col-md-12 col-12">
                     <div class="row my-2 mx-1 ancho">
-                        <select class="form-select" aria-label="Default select example" [(ngModel)]="escenario.escenarioEstado">
+                        <select formControlName="estadoEscenario" class="form-select" aria-label="Default select example">
                             <option selected >Habilitado</option>
                             <option value="1">Deshabilitado</option>
                         </select>
@@ -42,7 +42,7 @@
                         name="imagen" 
                         value="" 
                         placeholder="Cargar la imagen" 
-                        [(ngModel)]="escenario.escenarioFoto" 
+                        formControlName="imagenEscenario"
                         required>
                     </div>
 
@@ -53,7 +53,7 @@
 
                 <div class="container text-center my-4">
                     <div class="btn">
-                        <button type="button" class="btn btn-primary btn-lg" (click)="create()">Agregar</button>
+                        <button type="submit" class="btn btn-primary btn-lg" >Agregar</button>
                         <button type="button" class="btn btn-secondary btn-lg mx-3" onclick="location.href='gestion_escenarios'">Cancelar</button>
                     </div>    
                 </div>

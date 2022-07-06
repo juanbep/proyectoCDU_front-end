@@ -23,6 +23,7 @@ import { GestionEscenariosComponent } from './components/gestion-escenarios/gest
 import { FormEditarGestionEscenarioComponent } from './components/form-editar-gestion-escenario/form-editar-gestion-escenario.component';
 import { FormCrearGestionEscenarioComponent} from './components/gestion-escenarios/form-crear-gestion-escenario/form-crear-gestion-escenario.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
 
 //import { AppRoutingModule } from './app-routing.module';
 
@@ -65,6 +66,7 @@ const appRoutes:Routes=[
     MatButtonModule,
     MatIconModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
