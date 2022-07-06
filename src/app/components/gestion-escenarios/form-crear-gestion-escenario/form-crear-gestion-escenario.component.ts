@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core'; 
+import { Component, OnInit, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core'; 
 import { Router} from '@angular/router';
 import { EscenarioService } from 'src/app/services/escenario.service';
 import { FormGroup, FormControl } from '@angular/forms';
-
+import { Escenario } from 'src/app/interfaces/escenario';
 @Component({
   selector: 'app-form-crear-gestion-escenario',
   templateUrl: './form-crear-gestion-escenario.component.html',
@@ -12,10 +12,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class FormCrearGestionEscenarioComponent implements OnInit {
 
   profileForm = new FormGroup({
-    nombreEscenario: new FormControl(''),
-    descripcionEscenario: new FormControl(''),
-    estadoEscenario: new FormControl(''),
-    imagenEscenario: new FormControl(''),
+    escenarioNombre: new FormControl(''),
+    escenarioDescripcion: new FormControl(''),
+    escenarioFoto: new FormControl(''),
+    escenarioEstado: new FormControl(''),
   });
 
   constructor(private escenarioService:EscenarioService, private router:Router) { }
@@ -24,6 +24,12 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
 
   }
   onSubmit() {
-    console.warn(this.profileForm.value); //en this.profileForm.value tenemos el valor del form para poder manipularlo a nuestro gusto. Si queremos acceder a, por ejemplo, un control especifico, podemos hacerlo con this.profileForm.controls['nombreControl']
+    console.warn(this.profileForm.value); 
+  }
+
+  createEscenario():void{
+    this.escenarioService.create(this.profileForm.value).subscribe(
+      red=>this.router.navigate(['/escenarios'])
+    );
   }
 }
