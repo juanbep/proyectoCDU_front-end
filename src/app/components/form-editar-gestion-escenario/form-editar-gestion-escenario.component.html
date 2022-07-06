@@ -2,14 +2,13 @@
     <form role="form">
         <div class="form-group">
             <label for="Nombre_escenario">Nombre escenario</label>
-            <input type="text" class="form-control"  value={{cancha.escenarioNombre}} id="Nombre_escenario"  [(ngModel)]="cancha.escenarioNombre"
+            <input type="text" class="form-control" disabled="" value={{cancha.escenarioNombre}} id="Nombre_escenario"  [(ngModel)]="cancha.escenarioNombre"
                 required>
         </div>
         <div class="form-group">
             <label for="Estado">Estado</label>
             <select name="opcion">
-                <option value="value1" selected>{{cancha.escenarioEstado}}</option>
-                <option value="value2" selected>{{cancha.escenarioEstado}}</option>
+                <option *ngFor="let i of aux">{{i}}</option>
             </select>
         </div>
         <div class="form-group">
