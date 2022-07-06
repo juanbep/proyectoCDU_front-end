@@ -2,14 +2,25 @@
 
     <div class="container">
         <div class="row justify-content-md-center" >
-            <div class="col-12 col-md-6 col-lg-4" *ngFor="let categoria of categorias">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <a routerLink="/espacios_diamante" class="stretched-link">
+                        <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="COLISEO">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{categorias[0].categoriaNombre}}</h5>
+                        <p class="card-text">{{categorias[0].categoriaDescripcion}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
                     <a routerLink="/espacios_cdu" class="stretched-link">
                         <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="COLISEO">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title text-center">{{categoria.categoriaNombre}}</h5>
-                        <p class="card-text">{{categoria.categoriaDescripcion}}</p>
+                        <h5 class="card-title text-center">{{categorias[1].categoriaNombre}}</h5>
+                        <p class="card-text">{{categorias[1].categoriaDescripcion}}</p>
                     </div>
                 </div>
             </div>
