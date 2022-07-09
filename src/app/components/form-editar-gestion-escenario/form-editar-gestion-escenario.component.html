@@ -1,28 +1,30 @@
 <div class="container">
-    <form role="form">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="Nombre_escenario">Nombre escenario</label>
-            <input type="text" class="form-control" disabled="" value={{cancha.escenarioNombre}} id="Nombre_escenario"  [(ngModel)]="cancha.escenarioNombre"
-                required>
+            <input type="text" class="form-control" formControlName="nombreEscenario"
+                value={{escenario.escenarioNombre}} required>
         </div>
         <div class="form-group">
             <label for="Estado">Estado</label>
-            <select name="opcion">
+            <select name="opcion" formControlName="estadoEscenario">
                 <option *ngFor="let i of aux">{{i}}</option>
             </select>
         </div>
         <div class="form-group">
             <label for="ejemplo_archivo_1">Adjuntar archivo</label>
-            <input type="file" id="ejemplo_archivo_1">
-        </div>
+            <input type="image" alt="Imagen" style="float:right" width="48" height="48"
+                formControlName="imagenEscenario">
+        </div> 
         <div class="textarea">
             <label for="Descripcion">Descripcion</label>
-            <textarea rows="8" cols="50" placeholder={{cancha.escenarioDescripcion}} name="descripcion" [(ngModel)]="cancha.escenarioDescripcion"
-                required></textarea>
+            <textarea rows="8" cols="50" formControlName="descripcionEscenario" value={{escenario.escenarioDescripcion}}
+                name="descripcion" required></textarea>
         </div>
         <div class="text-center">
 
-            <button type="button" class="btn btnGuardar text-white font-weight rounded" (click)='create()'>GUARDAR</button>
+            <button type="submit" class="btn btnGuardar text-white font-weight rounded"
+                (click)='editarEscenario()'>GUARDAR</button>
             <button type="button" class="btn btnCancelar text-white font-weight rounded"
                 onclick="location.href='gestion_escenarios'">CANCELAR</button>
         </div>

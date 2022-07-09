@@ -24,7 +24,7 @@
                     <th>Descripcion</th>
                     <th>Imagen</th>
                     <th>Estado</th>
-                    <th>Actualizar</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <!--Contenido-->
@@ -67,6 +67,8 @@
                     <td>
                         <a href="form_gestion_escenarios" class="btn btn_editar text-white font-weight rounded"
                             role="button" aria-disabled="true" [routerLink]="['/form_gestion_escenarios/form', escenario.escenarioNombre]" >Editar</a>
+                        <a class="btn btn_editar text-white font-weight rounded"
+                            role="button" aria-disabled="true" (click)='eliminarEscenario(escenario)' >Eliminar</a>
                     </td>
                 </tr>
             </tbody>

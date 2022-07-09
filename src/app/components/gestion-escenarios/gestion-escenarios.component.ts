@@ -20,5 +20,12 @@ export class GestionEscenariosComponent implements OnInit {
     
   }
   
+  eliminarEscenario(escenario:Escenario){
+    this.escenarioservice.delete(escenario.escenarioNombre).subscribe(
+      res=>this.escenarioservice.getEscenariosInfo().subscribe(
+        Response=>this.escenarios=Response
+      )
+    );
+  }
 
 }

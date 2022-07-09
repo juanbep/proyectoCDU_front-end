@@ -27,12 +27,12 @@ export class EscenarioService {
   }
 
   //Método para actualizar un escenario
-  update(escenario:Escenario):Observable<Escenario>{
-    return this.http.put<Escenario>(this.url, escenario);
+  update(id:string, escenario: Escenario ):Observable<Escenario>{
+    return this.http.put<Escenario>(this.url+'/'+id, escenario);
   }
 
   //eliminar un escenario
-  delete(id:number):Observable<Escenario>{
+  delete(id:string):Observable<Escenario>{
     return this.http.delete<Escenario>(this.url+'/'+id);
   }
 }

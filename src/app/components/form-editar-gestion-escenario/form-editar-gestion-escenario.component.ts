@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Escenario } from 'src/app/interfaces/escenario';
 import { EscenarioService } from 'src/app/services/escenario.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 
 @Component({
   selector: 'app-form-editar-gestion-escenario',
@@ -10,10 +12,20 @@ import { EscenarioService } from 'src/app/services/escenario.service';
 })
 export class FormEditarGestionEscenarioComponent implements OnInit {
   //escenario: Escenario = new Escenario();
-  cancha: Escenario = new Escenario();
-  estado: string = "";
+  escenario: Escenario = new Escenario();
+  escenarioAux: Escenario = new Escenario();
 
-  constructor(private escenarioservice: EscenarioService, private route: Router, private activateRoute: ActivatedRoute) { }
+  profileForm = new FormGroup({
+    nombreEscenario: new FormControl(''),
+    estadoEscenario: new FormControl(''),
+    imagenEscenario: new FormControl(''),
+    descripcionEscenario: new FormControl(''),
+  });
+
+  constructor(private escenarioservice: EscenarioService,
+    private route: Router,
+    private activateRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.cargarEscenario();
@@ -27,13 +39,11 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
         if (id) {
           this.escenarioservice.getEscenario(id).subscribe(
             es => {
-              console.log(es);
-
-              this.cancha = es;
-              this.cancha.escenarioEstado = es.escenarioEstado == '0' ? 'Inabilitado' : 'Habilitado';
-              //this.aux = es.escenarioEstado=='1'?'Inabilitado':'Habilitado';
-              this.aux.push(this.cancha.escenarioEstado);
-              this.aux.push(this.cancha.escenarioEstado == 'Habilitado' ? 'Inabilitado' : 'Habilitado');
+              console.log(this.escenarioAux)
+              this.escenario = es;
+              this.escenario.escenarioEstado = es.escenarioEstado == '0' ? 'Inabilitado' : 'Habilitado';
+              this.aux.push(this.escenario.escenarioEstado);
+              this.aux.push(this.escenario.escenarioEstado == 'Habilitado' ? 'Inabilitado' : 'Habilitado');
 
             }
           );
@@ -41,13 +51,27 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
       }
     );
   }
-  create(): void {
-    console.log(this.cancha)
-  }
   editarEscenario(): void {
-    this.escenarioservice.update(this.cancha).subscribe(
+    this.convertirEscenario();
+    console.log("estado", this.escenarioAux.escenarioEstado), console.log("categoría", this.escenario.escenarioCategoria.categoriaDescripcion)
+    this.escenarioservice.update(this.escenario.escenarioNombre, this.escenarioAux).subscribe(
       res => this.route.navigate(['/escenarios'])
     );
+  }
+  onSubmit() {
+    console.warn(this.profileForm.value); //en this.profileForm.value tenemos el valor del form para poder manipularlo a nuestro gusto. Si queremos acceder a, por ejemplo, un control especifico, podemos hacerlo con this.profileForm.controls['nombreControl']
+  }
+  convertirEscenario(): void {
+    this.escenarioAux.escenarioNombre = this.profileForm.value.nombreEscenario;
+    this.escenarioAux.escenarioDescripcion = this.profileForm.value.descripcionEscenario;
+    this.escenarioAux.escenarioFoto = this.profileForm.value.imagenEscenario;
+    if(this.profileForm.value.estadoEscenario=='Habilitado'){
+      this.escenarioAux.escenarioEstado = '1';
+    }
+    if(this.profileForm.value.estadoEscenario=='Inabilitado'){
+      this.escenarioAux.escenarioEstado = '0';
+    } 
+    this.escenarioAux.escenarioCategoria = this.escenario.escenarioCategoria;
 
   }
 
