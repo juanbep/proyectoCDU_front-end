@@ -3,7 +3,7 @@
         <div class="form-group">
             <label for="Nombre_escenario">Nombre escenario</label>
             <input type="text" class="form-control" formControlName="nombreEscenario"
-                value={{escenario.escenarioNombre}} required>
+                value={{escenario.escenarioNombre}}>
         </div>
         <div class="form-group">
             <label for="Estado">Estado</label>
@@ -13,13 +13,13 @@
         </div>
         <div class="form-group">
             <label for="ejemplo_archivo_1">Adjuntar archivo</label>
-            <input type="image" alt="Imagen" style="float:right" width="48" height="48"
+            <input type="file" alt="Imagen" style="float:right" width="48" height="48" name="myImage" accept="image/*" 
                 formControlName="imagenEscenario">
         </div> 
         <div class="textarea">
             <label for="Descripcion">Descripcion</label>
             <textarea rows="8" cols="50" formControlName="descripcionEscenario" value={{escenario.escenarioDescripcion}}
-                name="descripcion" required></textarea>
+                name="descripcion"></textarea>
         </div>
         <div class="text-center">
 
