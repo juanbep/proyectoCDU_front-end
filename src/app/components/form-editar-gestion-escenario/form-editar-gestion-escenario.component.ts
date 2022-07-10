@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Escenario } from 'src/app/interfaces/escenario';
 import { EscenarioService } from 'src/app/services/escenario.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 
 @Component({
   selector: 'app-form-editar-gestion-escenario',
@@ -28,6 +27,7 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+     
     this.cargarEscenario();
   }
 
@@ -53,7 +53,7 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
   }
   editarEscenario(): void {
     this.convertirEscenario();
-    console.log("estado", this.escenarioAux.escenarioEstado), console.log("categoría", this.escenario.escenarioCategoria.categoriaDescripcion)
+    console.log("estado", this.escenarioAux.escenarioEstado), console.log("categoría", this.escenario.escenarioCategoria)
     this.escenarioservice.update(this.escenario.escenarioNombre, this.escenarioAux).subscribe(
       res => this.route.navigate(['/escenarios'])
     );
@@ -70,9 +70,8 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
     }
     if(this.profileForm.value.estadoEscenario=='Inabilitado'){
       this.escenarioAux.escenarioEstado = '0';
-    } 
+    }
     this.escenarioAux.escenarioCategoria = this.escenario.escenarioCategoria;
-
   }
 
 }

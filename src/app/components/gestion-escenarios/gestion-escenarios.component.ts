@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Escenario } from 'src/app/interfaces/escenario';
 import { EscenarioService } from 'src/app/services/escenario.service';
 
+
 @Component({
   selector: 'app-gestion-escenarios',
   templateUrl: './gestion-escenarios.component.html',
@@ -21,10 +22,13 @@ export class GestionEscenariosComponent implements OnInit {
   }
   
   eliminarEscenario(escenario:Escenario){
+    
     this.escenarioservice.delete(escenario.escenarioNombre).subscribe(
+      
       res=>this.escenarioservice.getEscenariosInfo().subscribe(
         Response=>this.escenarios=Response
       )
+      
     );
   }
 
