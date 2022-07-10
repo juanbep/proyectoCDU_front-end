@@ -3,6 +3,8 @@ import { Router} from '@angular/router';
 import { EscenarioService } from 'src/app/services/escenario.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Escenario } from 'src/app/interfaces/escenario';
+import { Categoria } from 'src/app/interfaces/categoria';
+import { CategoriaService } from 'src/app/services/categoria.service';
 
 @Component({
   selector: 'app-form-crear-gestion-escenario',
@@ -22,15 +24,15 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
     estadoEscenario: new FormControl(''),
   });
 
-  constructor(private escenarioservice: EscenarioService,
+  constructor(private escenarioservice: EscenarioService, private categoriaservice: CategoriaService,
     private route: Router,
   ) { }
 
-  listCategorias:any[]=[];
+  listCategorias:Categoria[]=[];
 
   ngOnInit(): void {
-    this.escenarioservice.getEscenariosInfo().subscribe(
-      e => {this.listCategorias=e; console.log(this.listCategorias)}
+    this.categoriaservice.getCategoriasInfo().subscribe(
+      e => {this.listCategorias=e; console.log("nombre categoría", this.listCategorias)}
     );
   }
 
