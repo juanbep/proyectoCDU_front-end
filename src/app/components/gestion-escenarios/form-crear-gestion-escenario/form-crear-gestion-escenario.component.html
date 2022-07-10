@@ -5,53 +5,47 @@
 
             <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                    <input
-                        type="text"
-                        name="title"
-                        id="title"
-                        placeholder="Titulo Escenario"
-                        formControlName="escenarioNombre"
-                        required
-                    />
+                    <input type="text" name="title" id="title" placeholder="Titulo Escenario"
+                        formControlName="escenarioNombre" required />
                 </div>
 
                 <div class="form-group">
-                    <textarea
-                        name="description"
-                        id="description"
-                        placeholder="Descripcion del Escenario"
-                        name="description"
-                        formControlName="escenarioDescripcion"
-                        required
-                    ></textarea>
+                    <textarea name="description" id="description" placeholder="Descripcion del Escenario"
+                        name="description" formControlName="escenarioDescripcion" required></textarea>
                 </div>
-                
+
                 <div class="col col-md-12 col-12">
                     <div class="row my-2 mx-1 ancho">
-                        <select formControlName="escenarioEstado" class="form-select" aria-label="Default select example">
-                            <option selected >Habilitado</option>
+                        <select formControlName="escenarioEstado" class="form-select"
+                            aria-label="Default select example">
+                            <option selected>Habilitado</option>
                             <option value="1">Deshabilitado</option>
                         </select>
                     </div>
-                </div>
+                </div><br>
+
+                <div class="col col-md-12 col-12">
+                    <div class="row my-2 mx-1 ancho">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Categoria</option>
+                            <option *ngFor="let item of listCategorias" value="1">{{item}}:00</option>
+                        </select>
+                    </div>
+                </div><br>
 
                 <div class="form-file ">
                     <div class="form-file__action">
-                        <input 
-                        type="file" 
-                        name="imagen" 
-                        value="" 
-                        placeholder="Cargar la imagen" 
-                        formControlName="escenarioFoto"
-                        required>
+                        <input type="file" name="imagen" value="" placeholder="Cargar la imagen"
+                            formControlName="escenarioFoto" required>
                     </div>
                 </div>
 
                 <div class="container text-center my-4">
                     <div class="btn">
-                        <button type="submit" class="btn btn-primary btn-lg" >Agregar</button>
-                        <button type="button" class="btn btn-secondary btn-lg mx-3" onclick="location.href='gestion_escenarios'">Cancelar</button>
-                    </div>    
+                        <button type="submit" class="btn btn-primary btn-lg">Agregar</button>
+                        <button type="button" class="btn btn-secondary btn-lg mx-3"
+                            onclick="location.href='gestion_escenarios'">Cancelar</button>
+                    </div>
                 </div>
             </form>
         </section>

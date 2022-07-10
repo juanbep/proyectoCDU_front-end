@@ -3,6 +3,7 @@ import { Router} from '@angular/router';
 import { EscenarioService } from 'src/app/services/escenario.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Escenario } from 'src/app/interfaces/escenario';
+
 @Component({
   selector: 'app-form-crear-gestion-escenario',
   templateUrl: './form-crear-gestion-escenario.component.html',
@@ -11,25 +12,50 @@ import { Escenario } from 'src/app/interfaces/escenario';
 
 export class FormCrearGestionEscenarioComponent implements OnInit {
 
+  escenario: Escenario = new Escenario();
+  escenarioAux: Escenario = new Escenario();
+
   profileForm = new FormGroup({
-    escenarioNombre: new FormControl(''),
-    escenarioDescripcion: new FormControl(''),
-    escenarioFoto: new FormControl(''),
-    escenarioEstado: new FormControl(''),
+    nombreEscenario: new FormControl(''),
+    descripcionEscenario: new FormControl(''),
+    imagenEscenario: new FormControl(''),
+    estadoEscenario: new FormControl(''),
   });
 
-  constructor(private escenarioService:EscenarioService, private router:Router) { }
+  constructor(private escenarioservice: EscenarioService,
+    private route: Router,
+  ) { }
+
+  listCategorias:any[]=[];
 
   ngOnInit(): void {
-
+    this.escenarioservice.getEscenariosInfo().subscribe(
+      e => {this.listCategorias=e; console.log(this.listCategorias)}
+    );
   }
+
   onSubmit() {
     console.warn(this.profileForm.value); 
   }
 
-  createEscenario():void{
-    this.escenarioService.create(this.profileForm.value).subscribe(
-      red=>this.router.navigate(['/escenarios'])
+  createEscenario(): void {
+    this.convertirEscenario();
+    console.log("estado", this.escenarioAux.escenarioEstado), console.log("categoría", this.escenario.escenarioCategoria.categoriaDescripcion)
+    this.escenarioservice.create(this.escenarioAux).subscribe(
+      res => this.route.navigate(['/escenarios'])
     );
+  }
+
+  convertirEscenario(): void {
+    this.escenarioAux.escenarioNombre = this.profileForm.value.nombreEscenario;
+    this.escenarioAux.escenarioDescripcion = this.profileForm.value.descripcionEscenario;
+    this.escenarioAux.escenarioFoto = this.profileForm.value.imagenEscenario;
+    if(this.profileForm.value.estadoEscenario=='Habilitado'){
+      this.escenarioAux.escenarioEstado = '1';
+    }
+    if(this.profileForm.value.estadoEscenario=='Inabilitado'){
+      this.escenarioAux.escenarioEstado = '0';
+    } 
+    this.escenarioAux.escenarioCategoria = this.escenario.escenarioCategoria;
   }
 }
