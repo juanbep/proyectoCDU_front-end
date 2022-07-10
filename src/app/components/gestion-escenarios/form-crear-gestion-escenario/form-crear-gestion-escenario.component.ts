@@ -16,7 +16,7 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
 
   escenario: Escenario = new Escenario();
   escenarioAux: Escenario = new Escenario();
-
+  aux: string ="";
   profileForm = new FormGroup({
     nombreEscenario: new FormControl(''),
     descripcionEscenario: new FormControl(''),
@@ -32,7 +32,12 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoriaservice.getCategoriasInfo().subscribe(
-      e => {this.listCategorias=e; console.log("nombre categoría", this.listCategorias)}
+      e => {this.listCategorias=e;
+      for(let i=0; i<this.listCategorias.length; i++){
+          this.aux =this.listCategorias[i].categoriaNombre;
+          console.log("varnombre",this.aux);
+      }
+    }
     );
   }
 

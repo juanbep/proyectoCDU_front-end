@@ -3,7 +3,7 @@
         <section class="main__form">
             <h2 class="main__form--title">Crear Escenario</h2>
 
-            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
                 <div class="form-group">
                     <input type="text" name="title" id="title" placeholder="Titulo Escenario"
                         formControlName="escenarioNombre" required />
@@ -26,9 +26,9 @@
 
                 <div class="col col-md-12 col-12">
                     <div class="row my-2 mx-1 ancho">
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" >
                             <option selected>Categoria</option>
-                            <option *ngFor="let item of listCategorias" value="1">{{item}}</option>
+                            <option *ngFor="let item of listCategorias">{{item.categoriaNombre}}</option>
                         </select>
                     </div>
                 </div><br>
