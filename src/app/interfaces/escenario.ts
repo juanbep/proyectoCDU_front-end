@@ -7,3 +7,4 @@ export class Escenario {
     escenarioEstado: string =""; 
     escenarioCategoria: Categoria= new Categoria();
 }
+
