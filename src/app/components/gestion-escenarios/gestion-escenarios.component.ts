@@ -9,27 +9,28 @@ import { EscenarioService } from 'src/app/services/escenario.service';
   styleUrls: ['./gestion-escenarios.component.css']
 })
 export class GestionEscenariosComponent implements OnInit {
-  
-  escenarios: Escenario[]=[];
-  
-  constructor(private escenarioservice:EscenarioService) { }
+
+  escenarios: Escenario[] = [];
+
+  constructor(private escenarioservice: EscenarioService) { }
 
   ngOnInit(): void {
     this.escenarioservice.getEscenariosInfo().subscribe(
-      e => {this.escenarios=e; console.log(this.escenarios)}
+      e => { this.escenarios = e; console.log(this.escenarios) }
     );
-    
+
   }
-  
-  eliminarEscenario(escenario:Escenario){
-    
-    this.escenarioservice.delete(escenario.escenarioNombre).subscribe(
-      
-      res=>this.escenarioservice.getEscenariosInfo().subscribe(
-        Response=>this.escenarios=Response
-      )
-      
-    );
+
+  eliminarEscenario(escenario: Escenario) {
+    var resultado = window.confirm("¿está seguro de eliminar el escenario [" + escenario.escenarioNombre + "] ?");
+    if (resultado == true) {
+      this.escenarioservice.delete(escenario.escenarioNombre).subscribe(
+        res => this.escenarioservice.getEscenariosInfo().subscribe(
+          Response => this.escenarios = Response
+        )
+      );
+      window.alert("Se ha eliminado con éxito")
+    } else { }
   }
 
 }
