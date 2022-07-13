@@ -3,6 +3,6 @@ function greet(){
 }
 
 function cambia_color(){
-    celda = document.getElementById("celda" + document.fcolor.celda.value)
+    celda = document.getElementById("celda_" + document.fcolor.celda.value)
     celda.style.backgroundColor=document.fcolor.micolor.value
 }
