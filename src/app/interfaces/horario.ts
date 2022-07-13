@@ -4,5 +4,5 @@ export class Horario {
     horarioEstado: string = "";
     programaId: string = "";
     usuarioId: string = "";
-    HorarioPK: HorarioPK =  new HorarioPK();
+    pk: HorarioPK =  new HorarioPK();
 }
