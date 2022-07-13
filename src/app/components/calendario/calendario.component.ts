@@ -1,6 +1,10 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { Horario } from 'src/app/interfaces/horario';
+import { HorarioService } from 'src/app/services/horario.service';
+
+declare function greet(): void;
 
 @Component({
   selector: 'app-calendario',
@@ -10,18 +14,31 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 export class CalendarioComponent implements OnInit {
 
-  constructor() { }
+  horarios: Horario[]=[];
+  myScriptElement: HTMLScriptElement;
+
+  constructor(private horarioservice:HorarioService) {
+    this.myScriptElement = document.createElement("script");
+    this.myScriptElement.src = "src/assets/js/horario.js";
+    document.body.appendChild(this.myScriptElement);
+  }
+
   listHoras:any[]=[];
   ngOnInit(): void {
     for (let index = 0; index < 17; index++) {
       this.listHoras[index]=index+6;
     }
-
+    this.horarioservice.getHorariosInfo().subscribe(
+      e => {this.horarios=e; console.log(this.horarios)}
+    );
+    
   }
+  
   foods: any[] = [
     {value: 'steak-0', viewValue: 'Steak'},
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'},
   ];
+
 
 }
