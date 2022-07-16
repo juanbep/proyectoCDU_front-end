@@ -18,10 +18,11 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
   escenarioAux: Escenario = new Escenario();
   aux: string ="";
   profileForm = new FormGroup({
-    nombreEscenario: new FormControl(''),
-    descripcionEscenario: new FormControl(''),
-    imagenEscenario: new FormControl(''),
+    escenarioNombre: new FormControl(''),
+    escenarioDescripcion: new FormControl(''),
+    escenarioFoto: new FormControl(''),
     estadoEscenario: new FormControl(''),
+    escenarioCategoria: new FormControl(''),
   });
 
   constructor(private escenarioservice: EscenarioService, private categoriaservice: CategoriaService,
@@ -43,11 +44,12 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
 
   onSubmit() {
     console.warn(this.profileForm.value); 
+    this.createEscenario();
   }
 
   createEscenario(): void {
     this.convertirEscenario();
-    console.log("estado", this.escenarioAux.escenarioEstado), console.log("categoría", this.escenario.escenarioCategoria.categoriaDescripcion)
+    console.log("estado", this.escenarioAux.escenarioEstado), console.log("categoría", this.escenario.escenarioCategoria)
     this.escenarioservice.create(this.escenarioAux).subscribe(
       res => this.route.navigate(['/escenarios'])
     );

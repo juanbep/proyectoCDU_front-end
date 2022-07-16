@@ -16,17 +16,17 @@
 
                 <div class="col col-md-12 col-12">
                     <div class="row my-2 mx-1 ancho">
-                        <select formControlName="escenarioEstado" class="form-select"
+                        <select formControlName="estadoEscenario" class="form-select"
                             aria-label="Default select example">
                             <option selected>Habilitado</option>
-                            <option value="1">Deshabilitado</option>
+                            <option>Deshabilitado</option>
                         </select>
                     </div>
                 </div><br>
 
                 <div class="col col-md-12 col-12">
                     <div class="row my-2 mx-1 ancho">
-                        <select class="form-select" aria-label="Default select example" >
+                        <select formControlName="escenarioCategoria" class="form-select" aria-label="Default select example" >
                             <option selected>Categoria</option>
                             <option *ngFor="let item of listCategorias">{{item.categoriaNombre}}</option>
                         </select>
