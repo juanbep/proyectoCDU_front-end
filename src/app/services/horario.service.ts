@@ -16,4 +16,9 @@ export class HorarioService {
   getHorariosInfo():Observable<Horario[]>{
     return this.http.get<Horario[]>(this.url)
   }
+
+   //eliminar una reserva 
+   delete(id:number):Observable<Horario>{
+    return this.http.delete<Horario>(this.url+'/'+id);
+  }
 }
