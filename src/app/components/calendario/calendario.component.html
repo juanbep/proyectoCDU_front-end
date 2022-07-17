@@ -258,17 +258,19 @@
 
 <form name=fcolor>
 <h3>Nombre de celda:</h3> 
-<input type=text name=celda size=8 placeholder="martes4">
+<input type=text name=celda size=8 placeholder="lunes5">
 <h3>Color RGB:</h3> 
 <input type=text name=micolor size=8 placeholder="#66ff33">
 <br>
+
 <input type=button value="Cambiar color" onclick="cambia_color()">
 </form>
 
 <div class="visualizarReservas" *ngFor="let horario of horarios">
   <span [ngSwitch]= horario.pk.horarioDia>
-    <span *ngSwitchCase="'LUNES'">{{horario.pk.horarioDia}}
-        
+    <span *ngSwitchCase="'LUNES'">
+        <h3>{{horario.pk.horarioDia}}</h3>
+        <h3>{{horario.pk.horarioHoraInicio}}</h3>
     </span>
     <h3 *ngSwitchDefault>(No encontrado)</h3>
   </span>

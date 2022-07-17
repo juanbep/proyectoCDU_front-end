@@ -10,13 +10,13 @@ import { EscenarioService } from 'src/app/services/escenario.service';
 export class EspaciosCduComponent implements OnInit {
 
 
-  escenarios: Escenario[]=[];
+  escenariosCDU: Escenario[]=[];
 
   constructor(private escenarioservice:EscenarioService) { }
 
   ngOnInit(): void {
     this.escenarioservice.getEscenariosInfo().subscribe(
-      e => {this.escenarios=e; console.log(this.escenarios)}
+      e => {this.escenariosCDU=e; console.log(this.escenariosCDU)}
     );
   }
 

@@ -2,69 +2,21 @@
 
 <div class="container">
   <div class="row g-3">
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <a href="/calendario" class="stretched-link">
-          <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top"
-            alt="COLISEO">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{escenarios[1].escenarioNombre}}</h5>
-          <p class="card-text">{{escenarios[1].escenarioDescripcion}}</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <a routerLink="/canchas_cdu" class="stretched-link">
-          <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="CANCHAS">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{escenarios[0].escenarioNombre}}</h5>
-          <p class="card-text">{{escenarios[0].escenarioDescripcion}}</p>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="PATINAJE">
-        <div class="card-body">
-          <h5 class="card-title text-center">{{escenarios[4].escenarioNombre}}</h5>
-          <p class="card-text">{{escenarios[4].escenarioDescripcion}}</p>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="PATINAJE">
-        <div class="card-body">
-          <h5 class="card-title text-center">{{escenarios[5].escenarioNombre}}</h5>
-          <p class="card-text">{{escenarios[5].escenarioDescripcion}}</p>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="PATINAJE">
-        <div class="card-body">
-          <h5 class="card-title text-center">{{escenarios[2].escenarioNombre}}</h5>
-          <p class="card-text">{{escenarios[2].escenarioDescripcion}}</p>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="PATINAJE">
-        <div class="card-body">
-          <h5 class="card-title text-center">{{escenarios[3].escenarioNombre}}</h5>
-          <p class="card-text">{{escenarios[3].escenarioDescripcion}}</p>
-        </div>
-      </div>
-    </div>
+    <ng-container *ngFor="let escenario of escenariosCDU">
+      <ng-container *ngIf="escenario.escenarioCategoria.categoriaNombre == 'tulcan'">
+          <div class="col-12 col-md-6 col-lg-4" *ngIf="escenario.escenarioEstado == '1' ">
+              <div class="card">
+                  <a routerLink={{escenario.escenarioUrl}} class="stretched-link">
+                  <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="COLISEO">
+                  </a>
+                  <div class="card-body">
+                      <h5 class="card-title text-center">{{escenario.escenarioNombre}}</h5>
+                      <p class="card-text">{{escenario.escenarioDescripcion}}</p>
+                  </div>
+              </div>
+          </div>
+      </ng-container>
+    </ng-container>
   </div>
 </div>
 <div>

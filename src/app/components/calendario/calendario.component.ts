@@ -33,7 +33,7 @@ export class CalendarioComponent implements OnInit {
     );
     
   }
-  
+
   foods: any[] = [
     {value: 'steak-0', viewValue: 'Steak'},
     {value: 'pizza-1', viewValue: 'Pizza'},

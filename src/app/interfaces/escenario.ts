@@ -6,5 +6,6 @@ export class Escenario {
     escenarioFoto: Blob =new Blob();
     escenarioEstado: string =""; 
     escenarioCategoria: Categoria= new Categoria();
+    escenarioUrl: string ="";
 }
 

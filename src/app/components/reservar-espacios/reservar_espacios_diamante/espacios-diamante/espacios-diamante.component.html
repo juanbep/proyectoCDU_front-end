@@ -2,39 +2,26 @@
 
     <div class="container">
         <div class="row g-3">
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="COLISEO">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">CANCHA DE FUTBOL 11</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum odio in felis mattis feugiat. In rhoncus libero magna, ultricies condimentum tortor tempor sit amet.</p>
+            <ng-container *ngFor="let escenario of escenariosDiamante">
+                <ng-container *ngIf="escenario.escenarioCategoria.categoriaNombre == 'el diamante'">
+                    <div class="col-12 col-md-6 col-lg-4" *ngIf="escenario.escenarioEstado == '1' ">
+                        <div class="card">
+                            <a routerLink={{escenario.escenarioUrl}} class="stretched-link">
+                            <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="COLISEO">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{escenario.escenarioNombre}}</h5>
+                                <p class="card-text">{{escenario.escenarioDescripcion}}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="CANCHAS">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">AUDITORIO</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum odio in felis mattis feugiat. In rhoncus libero magna, ultricies condimentum tortor tempor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="PATINAJE">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">OTROS</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum odio in felis mattis feugiat. In rhoncus libero magna, ultricies condimentum tortor tempor sit amet.</p>
-                    </div>
-                </div>
-            </div>
+                </ng-container>
+            </ng-container>
         </div>
     </div>
     <div>
         <br>
     </div>
-
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
