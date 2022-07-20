@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { EscenarioService } from 'src/app/services/escenario.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl} from '@angular/forms';
 import { Escenario } from 'src/app/interfaces/escenario';
 import { Categoria } from 'src/app/interfaces/categoria';
 import { CategoriaService } from 'src/app/services/categoria.service';
@@ -17,9 +17,11 @@ import { left } from '@popperjs/core';
   styleUrls: ['./form-crear-gestion-escenario.component.css'],
 })
 export class FormCrearGestionEscenarioComponent implements OnInit {
+
   escenario: Escenario = new Escenario();
   escenarioAux: Escenario = new Escenario();
   aux: string = '';
+
   profileForm = new FormGroup({
     escenarioNombre: new FormControl(''),
     escenarioDescripcion: new FormControl(''),

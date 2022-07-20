@@ -21,6 +21,7 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
     estadoEscenario: new FormControl(''),
     imagenEscenario: new FormControl(''),
     descripcionEscenario: new FormControl(''),
+    categoriaEscenario: new FormControl(''),
   });
 
   constructor(private escenarioservice: EscenarioService,
@@ -30,7 +31,7 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarEscenario();
-    
+
   }
   aux: string[] = [];
   cargarEscenario(): void {
@@ -52,13 +53,14 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
       }
     );
   }
+
   editarEscenario(): void {
     var resultado = window.confirm("¿Desea guardar los cambios?");
     if(resultado==true){
       this.convertirEscenario();
       console.log(this.escenarioAux);      
       this.escenarioservice.update(this.escenario.escenarioNombre, this.escenarioAux).subscribe(
-        res => this.route.navigate(['/escenarios'])
+        res => this.route.navigate(['/gestion_escenarios'])
       );
       window.alert("Cambios confirmados")
     }
@@ -66,6 +68,7 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
   onSubmit() {
     //console.warn(this.profileForm.value); //en this.profileForm.value tenemos el valor del form para poder manipularlo a nuestro gusto. Si queremos acceder a, por ejemplo, un control especifico, podemos hacerlo con this.profileForm.controls['nombreControl']
     this.convertirEscenario();
+  
     //console.log(this.escenarioAux);
   }
   convertirEscenario(): void {
@@ -78,7 +81,7 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
     }else{
       this.escenarioAux.escenarioEstado = '0';
     }
-    /*this.escenarioAux.escenarioCategoria= this.escenario.escenarioCategoria;*/
+    /*this.escenarioAux.categoriaEscenario= this.escenario.escenarioCategoria;*/
     //console.log(this.escenario)
    
   }
