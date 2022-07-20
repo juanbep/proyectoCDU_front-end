@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { EscenarioService } from 'src/app/services/escenario.service';
-import { FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Escenario } from 'src/app/interfaces/escenario';
 import { Categoria } from 'src/app/interfaces/categoria';
 import { CategoriaService } from 'src/app/services/categoria.service';
@@ -23,11 +23,11 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
   aux: string = '';
 
   profileForm = new FormGroup({
-    escenarioNombre: new FormControl(''),
-    escenarioDescripcion: new FormControl(''),
-    escenarioFoto: new FormControl(''),
-    estadoEscenario: new FormControl(''),
-    escenarioCategoria: new FormControl(''),
+    escenarioNombre: new FormControl('',[Validators.required]),
+    escenarioDescripcion: new FormControl('',[Validators.required]),
+    escenarioFoto: new FormControl('',[Validators.required]),
+    estadoEscenario: new FormControl('',[Validators.required]),
+    escenarioCategoria: new FormControl('',[Validators.required]),
   });
 
   constructor(
