@@ -1,22 +1,25 @@
-import { Component, OnInit, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core'; 
-import { Router} from '@angular/router';
+import {
+  Component,
+  OnInit,
+  ɵclearResolutionOfComponentResourcesQueue,
+} from '@angular/core';
+import { Router } from '@angular/router';
 import { EscenarioService } from 'src/app/services/escenario.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Escenario } from 'src/app/interfaces/escenario';
 import { Categoria } from 'src/app/interfaces/categoria';
 import { CategoriaService } from 'src/app/services/categoria.service';
+import { left } from '@popperjs/core';
 
 @Component({
   selector: 'app-form-crear-gestion-escenario',
   templateUrl: './form-crear-gestion-escenario.component.html',
-  styleUrls: ['./form-crear-gestion-escenario.component.css']
+  styleUrls: ['./form-crear-gestion-escenario.component.css'],
 })
-
 export class FormCrearGestionEscenarioComponent implements OnInit {
-
   escenario: Escenario = new Escenario();
   escenarioAux: Escenario = new Escenario();
-  aux: string ="";
+  aux: string = '';
   profileForm = new FormGroup({
     escenarioNombre: new FormControl(''),
     escenarioDescripcion: new FormControl(''),
@@ -25,46 +28,46 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
     escenarioCategoria: new FormControl(''),
   });
 
-  constructor(private escenarioservice: EscenarioService, private categoriaservice: CategoriaService,
-    private route: Router,
-  ) { }
+  constructor(
+    private escenarioservice: EscenarioService,
+    private categoriaservice: CategoriaService,
+    private route: Router
+  ) {}
 
-  listCategorias:Categoria[]=[];
+  listCategorias: Categoria[] = [];
 
   ngOnInit(): void {
-    this.categoriaservice.getCategoriasInfo().subscribe(
-      e => {this.listCategorias=e;
-      for(let i=0; i<this.listCategorias.length; i++){
-          this.aux =this.listCategorias[i].categoriaNombre;
-          console.log("varnombre",this.aux);
+    this.categoriaservice.getCategoriasInfo().subscribe((e) => {
+      this.listCategorias = e;
+      for (let i = 0; i < this.listCategorias.length; i++) {
+        this.aux = this.listCategorias[i].categoriaNombre;
+        console.log('varnombre', this.aux);
       }
-    }
-    );
+    });
   }
 
   onSubmit() {
-    console.warn(this.profileForm.value); 
+    console.warn(this.profileForm.value);
     this.createEscenario();
   }
 
   createEscenario(): void {
-    this.convertirEscenario();
-    console.log("estado", this.escenarioAux.escenarioEstado), console.log("categoría", this.escenario.escenarioCategoria)
-    this.escenarioservice.create(this.escenarioAux).subscribe(
-      res => this.route.navigate(['/escenarios'])
-    );
+    this.escenarioAux.escenarioNombre = this.profileForm.value.escenarioNombre;
+    this.escenarioAux.escenarioDescripcion = this.profileForm.value.escenarioDescripcion;
+    this.escenarioAux.escenarioFoto = this.profileForm.value.escenarioFoto;
+    this.escenarioAux.escenarioEstado = this.profileForm.value.estadoEscenario;
+    this.getCategoria();
+
+    console.log('estado', this.escenarioAux.escenarioEstado),
+
+    this.escenarioservice.create(this.escenarioAux).subscribe((res) => this.route.navigate(['/gestion_escenarios']));
   }
 
-  convertirEscenario(): void {
-    this.escenarioAux.escenarioNombre = this.profileForm.value.nombreEscenario;
-    this.escenarioAux.escenarioDescripcion = this.profileForm.value.descripcionEscenario;
-    this.escenarioAux.escenarioFoto = this.profileForm.value.imagenEscenario;
-    if(this.profileForm.value.estadoEscenario=='Habilitado'){
-      this.escenarioAux.escenarioEstado = '1';
+  getCategoria(): void {
+    for (let i = 0; i < this.listCategorias.length; i++) {
+      if (this.listCategorias[i].categoriaNombre == this.profileForm.value.escenarioCategoria) {
+        this.escenarioAux.escenarioCategoria = this.listCategorias[i];
+      }
     }
-    if(this.profileForm.value.estadoEscenario=='Inabilitado'){
-      this.escenarioAux.escenarioEstado = '0';
-    } 
-    this.escenarioAux.escenarioCategoria = this.escenario.escenarioCategoria;
   }
 }

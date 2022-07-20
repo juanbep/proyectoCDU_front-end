@@ -1,53 +1,82 @@
-<div class="container"> <br>
-    <main class="publicar--empleo">
-        <section class="main__form">
-            <h2 class="main__form--title">Crear Escenario</h2>
+<style>
+    .cuerpo{
+        background: rgb(210, 210, 210);
+    }
+    .bg{background-image: url(../assets/escenariosDeportivos.jpeg);}
+</style>
 
-            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
-                <div class="form-group">
-                    <input type="text" name="title" id="title" placeholder="Titulo Escenario"
-                        formControlName="escenarioNombre" required />
+<div class="cuerpo py-5">
+    
+    <div class="container w-80 bg-body rounded shadow col-md-7" id="cuerpo">
+        <div class="row align-items-stretch">
+            <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+    
+            </div>
+            <div class="col bg-white px-5 py-3 rounded-end">
+                <div class="text-end">
+                    <img src="../assets/unicauca.jpg" width="70" alt="">
                 </div>
-
-                <div class="form-group">
-                    <textarea name="description" id="description" placeholder="Descripcion del Escenario"
-                        name="description" formControlName="escenarioDescripcion" required></textarea>
-                </div>
-
-                <div class="col col-md-12 col-12">
-                    <div class="row my-2 mx-1 ancho">
+    
+                <h2 class="fw-bold text-center text-black py-5 rgv ">Crear Escenario</h2>
+                <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-4">
+                        <label for="nombreEscenario" class="form-label text-black ">Nombre Escenario</label>
+                        <input type="text" class="form-control" name="nombreEscenario" formControlName="escenarioNombre">
+                    </div>
+    
+                    <div class="mb-4 col col-md-12 col-12 row my-2 mx-0">
+                        <label for="descripcionEscenario" class="form-label text-black ">Descripcion Escenario</label>
+                        <textarea name="descripcionEscenario" formControlName="escenarioDescripcion"></textarea>
+                    </div>
+    
+                    <div class="mb-4">
+                        <label for="descripcionEscenario" class="form-label text-black ">Estado Escenario</label>
                         <select formControlName="estadoEscenario" class="form-select"
                             aria-label="Default select example">
-                            <option selected>Habilitado</option>
-                            <option>Deshabilitado</option>
+                            <option value="" disabled selected>Estado</option>
+                            <option value="1">Habilitado</option>
+                            <option value="0">Deshabilitado</option>
                         </select>
                     </div>
-                </div><br>
-
-                <div class="col col-md-12 col-12">
-                    <div class="row my-2 mx-1 ancho">
+    
+                    <div class="mb-4">
+                        <label for="descripcionEscenario" class="form-label text-black ">Categoria Escenario</label>
                         <select formControlName="escenarioCategoria" class="form-select" aria-label="Default select example" >
-                            <option selected>Categoria</option>
+                            <option value="" disabled selected>Categoria</option>
                             <option *ngFor="let item of listCategorias">{{item.categoriaNombre}}</option>
                         </select>
                     </div>
-                </div><br>
-
-                <div class="form-file ">
-                    <div class="form-file__action">
+    
+                    <div class="mb-4">
                         <input type="file" name="imagen" value="" placeholder="Cargar la imagen" accept="image/*"
-                            formControlName="escenarioFoto" required>
+                            formControlName="escenarioFoto">
                     </div>
-                </div>
-
-                <div class="container text-center my-4">
-                    <div class="btn">
-                        <button type="submit" class="btn btn-primary btn-lg">Agregar</button>
-                        <button type="button" class="btn btn-secondary btn-lg mx-3"
-                            onclick="location.href='gestion_escenarios'">Cancelar</button>
+    
+                    <div class="container w-100 my-5">
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary w-100 my-1">
+                                    <div class="row align-items-center">
+                                        <div class="col-12 text-center">
+                                            Agregar
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+        
+                            <div class="col">
+                                <button type="button" type="submit" class="btn btn-danger w-100 my-1" onclick="location.href='gestion_escenarios'">
+                                    <div class="row align-items-center">
+                                        <div class="col-12 text-center">
+                                            Cancelar
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </section>
-    </main>
-</div><br><br>
+                </form>
+            </div>
+        </div>
+    </div><br>
+</div>

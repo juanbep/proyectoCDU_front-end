@@ -1,6 +1,6 @@
 export class Categoria {
     categoriaNombre: string = "";
+    categoriaFoto: string = "";
     categoriaDescripcion: string = "";
-    categoriaFoto: Blob =new Blob();
     categoriaUrl: string = "";
 }
