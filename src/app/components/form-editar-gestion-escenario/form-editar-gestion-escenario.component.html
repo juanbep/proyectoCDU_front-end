@@ -1,54 +1,60 @@
 <style>
-    .cuerpo{
+    .cuerpo {
         background: rgb(210, 210, 210);
     }
-    .bg{background-image: url(../assets/escenariosDeportivos.jpeg);}
+    .bg {
+        background-image: url(../assets/escenariosDeportivos.jpeg);
+    }
 </style>
 
 <div class="cuerpo py-5">
-    
+
     <div class="container w-80 bg-body rounded shadow col-md-7" id="cuerpo">
         <div class="row align-items-stretch">
             <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
-    
+
             </div>
             <div class="col bg-white px-5 py-3 rounded-end">
                 <div class="text-end">
                     <img src="../assets/unicauca.jpg" width="70" alt="">
                 </div>
-    
+
                 <h2 class="fw-bold text-center text-black py-5 rgv ">Editar Escenario</h2>
                 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                     <div class="mb-4">
                         <label for="nombreEscenario" class="form-label text-black ">Nombre Escenario</label>
-                        <input type="text" class="form-control" name="nombreEscenario" formControlName="nombreEscenario" value={{escenario.escenarioNombre}}>
+                        <input type="text" class="form-control" name="nombreEscenario" formControlName="nombreEscenario"
+                            value={{escenario.escenarioNombre}}>
                     </div>
-    
+
                     <div class="mb-4 col col-md-12 col-12 row my-2 mx-0">
                         <label for="escenarioDescripcion" class="form-label text-black ">Descripcion Escenario</label>
-                        <textarea name="escenarioDescripcion" formControlName="descripcionEscenario" value={{escenario.escenarioDescripcion}}></textarea>
+                        <textarea name="escenarioDescripcion" formControlName="descripcionEscenario"
+                            value={{escenario.escenarioDescripcion}}></textarea>
                     </div>
-    
+
                     <div class="mb-4">
                         <label for="escenarioEstado" class="form-label text-black ">Estado Escenario</label>
-                        <select formControlName="estadoEscenario" class="form-select" name="escenarioEstado" aria-label="Default select example">
-                            <option *ngFor="let i of aux">{{i}}</option>
+                        <select formControlName="estadoEscenario" class="form-select" name="escenarioEstado"
+                            aria-label="Default select example">
+                            <option *ngFor="let i of auxEstado">{{i}}</option>
                         </select>
                     </div>
-    
+
                     <div class="mb-4">
                         <label for="descripcionEscenario" class="form-label text-black ">Categoria Escenario</label>
-                        <select formControlName="escenarioCategoria" class="form-select" aria-label="Default select example" >
-                            <option value="" disabled selected>Categoria</option>
-                            
+                        <select formControlName="categoriaEscenario" class="form-select"
+                            aria-label="Default select example">
+                            <option value="" disabled selected></option>
+                            <option *ngFor="let item of listCategorias">{{item.categoriaNombre}}</option>
                         </select>
                     </div>
-    
+
                     <div class="mb-4">
                         <input type="file" name="imagen" value="" placeholder="Cargar la imagen" accept="image/*"
                             formControlName="imagenEscenario" class="form-label text-black ">
                     </div>
-    
+
                     <div class="container w-100 my-5">
                         <div class="row">
                             <div class="col">
@@ -60,12 +66,13 @@
                                     </div>
                                 </button>
                             </div>
-        
+
                             <div class="col">
-                                <button type="button" type="submit" class="btn btn-danger w-100 my-1" onclick="location.href='gestion_escenarios'">
+                                <button type="button" type="submit" class="btn btn-danger w-100 my-1"
+                                    onclick="location.href='gestion_escenarios'">
                                     <div class="row align-items-center">
                                         <div class="col-12 text-center">
-                                            Cancelar
+                                            Volver atras
                                         </div>
                                     </div>
                                 </button>

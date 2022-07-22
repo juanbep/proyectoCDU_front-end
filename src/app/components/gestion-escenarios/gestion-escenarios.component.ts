@@ -9,16 +9,27 @@ import { EscenarioService } from 'src/app/services/escenario.service';
   styleUrls: ['./gestion-escenarios.component.css']
 })
 export class GestionEscenariosComponent implements OnInit {
-
   escenarios: Escenario[] = [];
 
-  constructor(private escenarioservice: EscenarioService) { }
-
+  constructor(
+    private escenarioservice: EscenarioService
+    ) { }
   ngOnInit(): void {
     this.escenarioservice.getEscenariosInfo().subscribe(
-      e => { this.escenarios = e; console.log(this.escenarios) }
+      e => {
+        this.escenarios = e;
+        console.log(this.escenarios)
+        for (let i = 0; i < this.escenarios.length; i++) {
+          if (e[i].escenarioEstado == '1') {
+            this.escenarios[i].escenarioEstado = 'Habilitado';
+          }
+          if (e[i].escenarioEstado == '0') {
+            this.escenarios[i].escenarioEstado = 'Deshabilitado';
+          }
+        }
+      }
     );
-
+    
   }
 
   eliminarEscenario(escenario: Escenario) {
