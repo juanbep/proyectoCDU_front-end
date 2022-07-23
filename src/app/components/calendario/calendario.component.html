@@ -22,7 +22,7 @@
       <tbody>
         <tr>
           <th>5:00 - 6:00</th>
-          <td id="celda_LUNES" class = "lunes"></td>
+          <td id="celda_lunes5" class = "lunes"></td>
           <td id="celda_martes5" class = "martes"></td>
           <td id="celda_miercoles5" class = "miercoles"></td>
           <td id="celda_jueves5" class = "jueves"></td>
@@ -256,26 +256,24 @@
 </div>
 
 
-<!--<form name=fcolor>
-<h3>Nombre de celda:</h3> 
-<input type=text name=celda size=8 placeholder="lunes5">
-<h3>Color RGB:</h3>
-<input type=text name=micolor size=8 placeholder="#66ff33">
-<br>
-
-<input type=button value="Cambiar color" onclick="cambia_color()">
-</form>-->
-
 <div class="visualizarReservas" *ngFor="let horario of horarios">
+  <h3>{{horario.pk.horarioDia}}</h3>
   <span [ngSwitch]= horario.pk.horarioDia>
-    <span *ngSwitchCase="'LUNES'">
-        <input type="text" name=celda size=8 [ngModel]="horario.pk.horarioDia">
-        <input type=text name=micolor size=8 placeholder="#66ff33">
-        <input type=button value="Cambiar color" onclick="cambia_color()">
-        <!--<h3>{{horario.pk.horarioDia}}</h3>
-        <h3>{{horario.pk.horarioHoraInicio}}</h3>-->
+    <span *ngSwitchCase="'martes'">
+      <form name=fcolor>
+        <input type="hidden" name=celda size=8  value={{horario.pk.horarioDia+horario.pk.horarioHoraInicio}}>
+        <input type="hidden" name=micolor size=8 value="#66ff33">
+      </form>
     </span>
     <h3 *ngSwitchDefault>(No encontrado)</h3>
   </span>
 </div>
+<input type=button value="Cambiar color" onclick="cambia_color()">
+
+
+
+
+
+
+
 

@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, Input } from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Horario } from 'src/app/interfaces/horario';
@@ -17,6 +17,8 @@ export class CalendarioComponent implements OnInit {
   horarios: Horario[]=[];
   myScriptElement: HTMLScriptElement;
 
+  celda: string = "lunes8";
+
   constructor(private horarioservice:HorarioService) {
     this.myScriptElement = document.createElement("script");
     this.myScriptElement.src = "src/assets/js/horario.js";
@@ -31,7 +33,6 @@ export class CalendarioComponent implements OnInit {
     this.horarioservice.getHorariosInfo().subscribe(
       e => {this.horarios=e; console.log(this.horarios)}
     );
-    
   }
 
   foods: any[] = [

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Escenario } from 'src/app/interfaces/escenario';
+import { EscenarioService } from 'src/app/services/escenario.service';
 
 @Component({
   selector: 'app-canchas',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CanchasComponent implements OnInit {
 
-  constructor() { }
+  escenariosCDU: Escenario[]=[];
+
+  constructor(private escenarioservice:EscenarioService) { }
 
   ngOnInit(): void {
+    this.escenarioservice.getEscenariosInfo().subscribe(
+      e => {this.escenariosCDU=e; console.log(this.escenariosCDU)}
+    );
   }
 
 }
