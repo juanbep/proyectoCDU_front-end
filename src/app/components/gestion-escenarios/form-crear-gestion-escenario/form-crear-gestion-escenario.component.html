@@ -21,7 +21,7 @@
                 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                     <div class="mb-4">
                         <label for="escenarioNombre" class="form-label text-black ">Nombre Escenario</label>
-                        <input type="text" class="form-control" name="escenarioNombre" id="escenarioNombre" formControlName="escenarioNombre">
+                        <input type="text" class="form-control" name="escenarioNombre" id="escenarioNombre" formControlName="escenarioNombre" required="Ingresar nombre">
                     </div>
     
                     <div class="mb-4 col col-md-12 col-12 row my-2 mx-0">

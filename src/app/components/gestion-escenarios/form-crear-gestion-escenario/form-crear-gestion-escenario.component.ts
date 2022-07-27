@@ -23,7 +23,7 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
   aux: string = '';
 
   profileForm = new FormGroup({
-    escenarioNombre: new FormControl('',[Validators.required]),
+    escenarioNombre: new FormControl('',[Validators.min(1)]),
     escenarioDescripcion: new FormControl('',[Validators.required]),
     escenarioFoto: new FormControl('',[Validators.required]),
     estadoEscenario: new FormControl('',[Validators.required]),
@@ -46,6 +46,8 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
         console.log('varnombre', this.aux);
       }
     });
+
+
   }
 
   onSubmit() {
@@ -71,5 +73,12 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
         this.escenarioAux.escenarioCategoria = this.listCategorias[i];
       }
     }
+  }
+
+  validar():void{
+    if(this.profileForm.value.escenarioNombre = ""){
+      console.log('gono', this.aux);
+    }
+
   }
 }
