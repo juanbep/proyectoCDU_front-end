@@ -1,5 +1,17 @@
-import { Component, NgModule, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter, Renderer2,
-AfterViewInit} from '@angular/core';
+import {
+  Component,
+  NgModule,
+  OnInit,
+  Input,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter,
+  Renderer2,
+  AfterViewInit,
+  ViewChildren,
+  QueryList,
+} from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Horario } from 'src/app/interfaces/horario';
@@ -9,7 +21,6 @@ import { SelectorContext } from '@angular/compiler';
 import { style } from '@angular/animations';
 import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 
-
 declare function greet(): void;
 
 @Component({
@@ -17,24 +28,78 @@ declare function greet(): void;
   templateUrl: './calendario.component.html',
   styleUrls: ['./calendario.component.css'],
 })
-export class CalendarioComponent  implements AfterViewInit{
-  
+export class CalendarioComponent implements AfterViewInit {
   horarios: Horario[] = [];
   myScriptElement: HTMLScriptElement;
 
-  @ViewChild('lunes18', {static : false}) title : any ;
-     
-  public texto: string = "";
+  @ViewChild('martes18', { static: false }) public celda: any;
+  @ViewChildren('celda') public misCeldas!: QueryList<ElementRef>;
 
-  constructor(private horarioservice: HorarioService, private renderer2: Renderer2) {
+  public texto: string = '';
+  //public horarioDia: string = "";
+  //public horarioHoraInicio!: number;
+  public celdaAux: string = '';
+
+  constructor(
+    private horarioservice: HorarioService,
+    private renderer2: Renderer2
+  ) {
     this.myScriptElement = document.createElement('script');
     this.myScriptElement.src = 'src/assets/js/horario.js';
     document.body.appendChild(this.myScriptElement);
   }
 
   ngAfterViewInit(): void {
-    const asTitle = this.title.nativeElement;
-    this.renderer2.setStyle(asTitle, 'background-color', 'red');
+    //const asCelda = this.celda.nativeElement;
+    //this.renderer2.setStyle(asCelda, 'background-color', 'red');
+    let colores = [
+      'cyan',
+      'black',
+      'blue',
+      'brown',
+      'gold',
+      'gray',
+      'green',
+      'magenta',
+      'orange',
+      'pink',
+      'purple',
+      'red',
+      'silver',
+      'turquoise',
+      'yellow',
+    ];
+
+    this.horarioservice.getHorariosInfo().subscribe((e) => {
+      this.horarios = e;
+      //console.log(this.horarios);
+      this.horarios.forEach((elemento) => {
+        this.celdaAux = elemento.pk.horarioDia + elemento.pk.horarioHoraInicio;
+        //console.log(this.celdaAux);
+        let i: number;
+        for (i = 0; i < this.misCeldas.length; i++) {
+          //const celda5 = elemento.nativeElement.getAttribute('id');
+          const idCelda = this.misCeldas
+            .get(i)
+            ?.nativeElement.getAttribute('id');
+          //console.log(idCelda);
+          if (idCelda == this.celdaAux) {
+            //console.log(idCelda);
+            const asCelda = this.misCeldas.get(i)?.nativeElement;
+            this.renderer2.setStyle(asCelda, 'background-color', colores[5]);
+            break;
+          }
+          //this.renderer2.setStyle(celdas, 'background-color', colores[8]);
+        }
+      });
+    });
+
+    /*this.misCeldas.forEach((elemento) => {
+      //const celdas = elemento.nativeElement.getAttribute('id');
+      const celdas = elemento.nativeElement;
+      //console.log(celdas);
+      this.renderer2.setStyle(celdas, 'background-color', colores[8]);
+    });*/
   }
 
   listHoras: any[] = [];
@@ -42,17 +107,16 @@ export class CalendarioComponent  implements AfterViewInit{
     for (let index = 0; index < 17; index++) {
       this.listHoras[index] = index + 6;
     }
-    this.horarioservice.getHorariosInfo().subscribe((e) => {
+    /*this.horarioservice.getHorariosInfo().subscribe((e) => {
       this.horarios = e;
       console.log(this.horarios);
-    });
-    this.texto = "hola mundo";
-    
+    });*/
+    //this.texto = "hola mundo";
   }
 
-  change(): void{
-    const asTitle = this.title.nativeElement;
-    this.renderer2.setStyle(asTitle, 'background-color', 'red');
+  change(): void {
+    const asCelda = this.celda.nativeElement;
+    this.renderer2.setStyle(asCelda, 'background-color', 'red');
   }
 
   foods: any[] = [
