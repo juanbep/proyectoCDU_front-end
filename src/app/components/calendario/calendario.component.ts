@@ -69,7 +69,7 @@ export class CalendarioComponent implements AfterViewInit {
       'turquoise',
       'yellow',
     ];
-
+    let cont: number = 0;
     this.horarioservice.getHorariosInfo().subscribe((e) => {
       this.horarios = e;
       //console.log(this.horarios);
@@ -86,8 +86,12 @@ export class CalendarioComponent implements AfterViewInit {
           if (idCelda == this.celdaAux) {
             //console.log(idCelda);
             const asCelda = this.misCeldas.get(i)?.nativeElement;
-            this.renderer2.setStyle(asCelda, 'background-color', colores[5]);
+            this.renderer2.setStyle(asCelda, 'background-color', colores[cont]);
             break;
+          }
+          cont++;
+          if(cont > colores.length){
+            cont = 0;
           }
           //this.renderer2.setStyle(celdas, 'background-color', colores[8]);
         }
