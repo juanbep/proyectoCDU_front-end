@@ -24,6 +24,7 @@ import { FormEditarGestionEscenarioComponent } from './components/form-editar-ge
 import { FormCrearGestionEscenarioComponent} from './components/gestion-escenarios/form-crear-gestion-escenario/form-crear-gestion-escenario.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormAgregarHorarioComponent } from './components/calendario/form-agregar-horario/form-agregar-horario.component';
 
 //import { AppRoutingModule } from './app-routing.module';
 
@@ -38,7 +39,8 @@ const appRoutes:Routes=[
   {path:'calendario', component:CalendarioComponent},
   {path:'gestion_escenarios', component:GestionEscenariosComponent},
   {path:'form_gestion_escenarios/form/:id', component:FormEditarGestionEscenarioComponent},
-  {path:'form_crear_escenarios', component:FormCrearGestionEscenarioComponent}
+  {path:'form_crear_escenarios', component:FormCrearGestionEscenarioComponent},
+  {path:'form_agregar_horario', component:FormAgregarHorarioComponent},
 ];
 
 @NgModule({
@@ -54,7 +56,8 @@ const appRoutes:Routes=[
     CalendarioComponent,
     GestionEscenariosComponent,
     FormEditarGestionEscenarioComponent,
-    FormCrearGestionEscenarioComponent
+    FormCrearGestionEscenarioComponent,
+    FormAgregarHorarioComponent
   ],
   imports: [
     BrowserModule,

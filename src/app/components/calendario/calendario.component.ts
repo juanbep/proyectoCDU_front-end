@@ -54,10 +54,4 @@ export class CalendarioComponent  implements AfterViewInit{
     const asTitle = this.title.nativeElement;
     this.renderer2.setStyle(asTitle, 'background-color', 'red');
   }
-
-  foods: any[] = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
-  ];
 }
