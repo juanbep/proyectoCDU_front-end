@@ -39,6 +39,7 @@ export class CalendarioComponent implements AfterViewInit {
   //public horarioDia: string = "";
   //public horarioHoraInicio!: number;
   public celdaAux: string = '';
+  public reservado: string = "reservado";
 
   constructor(
     private horarioservice: HorarioService,
@@ -86,7 +87,10 @@ export class CalendarioComponent implements AfterViewInit {
           if (idCelda == this.celdaAux) {
             //console.log(idCelda);
             const asCelda = this.misCeldas.get(i)?.nativeElement;
+            //console.log(asCelda);
             this.renderer2.setStyle(asCelda, 'background-color', colores[cont]);
+            //console.log(elemento.usuarioId);
+            asCelda.innerText = "reservado";
             break;
           }
           cont++;
@@ -111,10 +115,13 @@ export class CalendarioComponent implements AfterViewInit {
     for (let index = 0; index < 17; index++) {
       this.listHoras[index] = index + 6;
     }
-    /*this.horarioservice.getHorariosInfo().subscribe((e) => {
+    this.horarioservice.getHorariosInfo().subscribe((e) => {
       this.horarios = e;
       console.log(this.horarios);
-    });*/
+      this.horarios.forEach((elemento) =>{
+  
+      });
+    });
     //this.texto = "hola mundo";
   }
 
