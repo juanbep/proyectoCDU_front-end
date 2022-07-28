@@ -28,6 +28,7 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
     escenarioFoto: new FormControl('',[Validators.required]),
     estadoEscenario: new FormControl('',[Validators.required]),
     escenarioCategoria: new FormControl('',[Validators.required]),
+    escenarioUrl: new FormControl('/calendario'),
   });
 
   constructor(
@@ -61,6 +62,7 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
     this.escenarioAux.escenarioFoto = this.profileForm.value.escenarioFoto;
     this.escenarioAux.escenarioEstado = this.profileForm.value.estadoEscenario;
     this.getCategoria();
+    this.escenarioAux.escenarioUrl = this.profileForm.value.escenarioUrl;
 
     console.log('estado', this.escenarioAux.escenarioEstado),
 
@@ -79,6 +81,5 @@ export class FormCrearGestionEscenarioComponent implements OnInit {
     if(this.profileForm.value.escenarioNombre = ""){
       console.log('gono', this.aux);
     }
-
   }
 }
