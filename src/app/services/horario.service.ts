@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Horario } from '../interfaces/horario';
+import { HorarioPK } from '../interfaces/horario-pk';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class HorarioService {
 
   create(horario: Horario):Observable<Horario>{
     return this.http.post<Horario>(this.url, Horario);
+  }
+
+  createPk(horarioPk: HorarioPK):Observable<HorarioPK>{
+    return this.http.post<HorarioPK>(this.url, HorarioPK);
   }
 
    //eliminar una reserva 
