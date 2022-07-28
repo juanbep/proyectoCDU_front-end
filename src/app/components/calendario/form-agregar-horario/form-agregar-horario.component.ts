@@ -9,11 +9,14 @@ import { HorarioService } from 'src/app/services/horario.service';
   templateUrl: './form-agregar-horario.component.html',
   styleUrls: ['./form-agregar-horario.component.css']
 })
+
 export class FormAgregarHorarioComponent implements OnInit {
 
   horario: HorarioPK = new HorarioPK();
   horarioAux: HorarioPK = new HorarioPK();
+
   aux: string = '';
+  aux4: string = '';
 
   opcionSeleccionadoInicio:number=0;
   verSeleccionInicio:number= 0;
@@ -21,9 +24,20 @@ export class FormAgregarHorarioComponent implements OnInit {
   opcionSeleccionadoFin:number=0;
   verSeleccionFin:number= 0;
 
+  opcionSeleccionadoEstudId:number=0;
+  verEstudianteId:number= 0;
+
+  opcionSeleccionadoProgId:number=0;
+  verProgramaId:number= 0;
+
+  opcionSeleccionadoInicioDate=new Date;
+  varFechaInicio:Date=new Date;
+
+  opcionSeleccionadoFinDate=new Date;
+  varFechaFin:Date=new Date;
+
   listHorasInicio: any[] = [];
   listHorasFin: any[] = [];
-  aux4: string = '';
 
   listDias: any[] =[
     { nombre: "Lunes", checked: false },
@@ -35,13 +49,7 @@ export class FormAgregarHorarioComponent implements OnInit {
     { nombre: "Domingo", checked: false }
   ];
 
-  horarioForm = new FormGroup({
-    horarioHoraInicio: new FormControl('',[Validators.min(1)]),
-    horarioHoraFin: new FormControl('',[Validators.required]),
-    horarioDia: new FormControl('',[Validators.required]),
-    horarioFechaInicio: new FormControl('',[Validators.required]),
-    horarioFechaFin: new FormControl('',[Validators.required]),
-  });
+  listDiasAux: any[] =[];
 
   constructor(
     private HorarioService : HorarioService,
@@ -49,44 +57,43 @@ export class FormAgregarHorarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.mostrarHorarioInicio();
-    this.mostrarHorarioFin();
-    
+    this.mostrarHorarioInicio()
   }
 
   onSubmit() {
-    console.warn(this.horarioForm.value);
-
-    this.createHorario();
-
     this.mostrardias(); 
   }
 
-  createHorario(): void {
+  /**
+   *createHorario(): void {
     this.horarioAux.horarioHoraInicio = this.horarioForm.value.horarioHoraInicio;
     this.horarioAux.horarioHoraFin = this.horarioForm.value.horarioHoraFin;
     this.horarioAux.horarioDia = this.horarioForm.value.horarioDia;
     this.horarioAux.horarioFechaInicio = this.horarioForm.value.horarioFechaInicio;
     this.horarioAux.horarioFechaFin = this.horarioForm.value.horarioFechaFin;
 
-    /**
-     * this.HorarioService.create(this.horarioAux).subscribe((res) => this.route.navigate(['/calendario']));
-     */
-  }
+    this.HorarioService.create(this.horarioAux).subscribe((res) => this.route.navigate(['/calendario']));
+    }
+   */
 
   mostrarHorarioInicio():void{
     for (let index = 0; index < 17; index++) {
       this.listHorasInicio[index] = index+6;
     }
+    console.log('gonorrea', this.listHorasInicio.length);
   }
 
-  mostrarHorarioFin = () => {
+  mostrarHorarioFin():void{
     let varAux=0
+    this.listHorasFin = []
+
     for (let index = 0; index < this.listHorasInicio.length; index++) {
-      if(index+2 <= this.listHorasInicio.length){
-        if(this.listHorasInicio[index] == this.verSeleccionInicio){
-          this.listHorasFin[varAux] = this.listHorasInicio[index + 1]
-          this.listHorasFin[varAux + 1] = this.listHorasInicio[index + 2]
+      if(this.listHorasInicio[index]>=this.verSeleccionInicio){
+        if(this.listHorasFin[varAux] == 22 ){
+          break
+        }else{
+          this.listHorasFin[varAux] = this.listHorasInicio[index]
+          varAux = varAux + 1
         }
       }
     }
@@ -99,6 +106,55 @@ export class FormAgregarHorarioComponent implements OnInit {
     }
   }
 
+  obtenerDias():void{
+    let index = 0;
+
+    if(this.listDias[0] == true){
+      this.listDiasAux[index] = "lunes"
+      index = index++;
+    }
+
+    if(this.listDias[1] == true){
+      this.listDiasAux[index] = "martes"
+      index = index++;
+    }
+
+    if(this.listDias[2] == true){
+      this.listDiasAux[index] = "miercoles"
+      index = index++;
+    }
+
+    if(this.listDias[3] == true){
+      this.listDiasAux[index] = "jueves"
+      index = index++;
+    }
+
+    if(this.listDias[4] == true){
+      this.listDiasAux[index] = "viernes"
+      index = index++;
+    }
+
+    if(this.listDias[5] == true){
+      this.listDiasAux[index] = "sabado"
+      index = index++;
+    }
+
+    if(this.listDias[6] == true){
+      this.listDiasAux[index] = "domingo"
+      index = index++;
+    }
+  }
+
+  capturarProgramaId() {
+    this.verProgramaId = this.opcionSeleccionadoProgId;
+    console.log('hora prueba inicio', this.verProgramaId);
+  }
+
+  capturarEstudianteId() {
+    this.verEstudianteId = this.opcionSeleccionadoEstudId;
+    console.log('hora prueba inicio', this.verEstudianteId);
+  }
+
   capturarHoraInicio() {
     this.verSeleccionInicio = this.opcionSeleccionadoInicio;
     console.log('hora prueba inicio', this.verSeleccionInicio);
@@ -107,5 +163,15 @@ export class FormAgregarHorarioComponent implements OnInit {
   capturarHoraFin() {
     this.verSeleccionFin = this.opcionSeleccionadoFin;
     console.log('hora prueba inicio', this.verSeleccionFin);
+  }
+
+  capturarFechasInicio(){
+    this.varFechaInicio = this.opcionSeleccionadoInicioDate;
+    console.log('hora prueba inicio', this.varFechaInicio);
+  }
+
+  capturarFechasFin(){
+    this.varFechaFin = this.opcionSeleccionadoFinDate;
+    console.log('hora prueba inicio', this.varFechaFin);
   }
 }
