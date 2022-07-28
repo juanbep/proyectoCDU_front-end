@@ -81,7 +81,7 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
   }
   editarEscenario(): void {
     var resultado = window.confirm("¿Desea guardar los cambios?");
-    if (resultado == true && this.profileForm.value.nombreEscenario != '') {
+    if (resultado == true) {
       this.convertirEscenario();
       console.log(this.escenarioAux);
       this.escenarioservice.update(this.escenario.escenarioNombre, this.escenarioAux).subscribe(
