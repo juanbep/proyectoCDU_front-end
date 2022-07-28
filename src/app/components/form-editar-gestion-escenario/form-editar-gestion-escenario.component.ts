@@ -18,6 +18,8 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
   listCategorias: Categoria[] = [];
   auxCat: string = '';
   auxEstado: string[] = [];
+  escenarios: Escenario[] = [];
+  validacion: boolean = false;
 
   profileForm = new FormGroup({
     nombreEscenario: new FormControl(''),
@@ -36,7 +38,7 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
   ngOnInit(): void {
     this.cargarEscenario();
   }
-  
+
   cargarEscenario(): void {
     this.activateRoute.params.subscribe(
       e => {
@@ -75,17 +77,34 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
       this.escenarioAux.escenarioEstado = '0';
     }
     this.escenarioAux.escenarioCategoria = this.escenario.escenarioCategoria;
-    this.escenarioAux.escenarioUrl="esce";
+    this.escenarioAux.escenarioUrl = this.escenario.escenarioUrl;
   }
   editarEscenario(): void {
     var resultado = window.confirm("¿Desea guardar los cambios?");
-    if (resultado == true) {
+    if (resultado == true && this.profileForm.value.nombreEscenario != '') {
       this.convertirEscenario();
       console.log(this.escenarioAux);
       this.escenarioservice.update(this.escenario.escenarioNombre, this.escenarioAux).subscribe(
         res => this.route.navigate(['/gestion_escenarios'])
       );
       window.alert("Cambios confirmados")
+    } else {
+      window.alert("Debe llenar los espacios")
     }
+  }
+
+  comprovarEscenario(nombre: string): boolean {
+    
+    this.escenarioservice.getEscenariosInfo().subscribe(
+      e => {
+        this.escenarios = e;
+        for (let i = 0; i < this.escenarios.length; i++) {
+          if (e[i].escenarioNombre == nombre) {
+            this.validacion = true;
+          }
+        }
+      }
+    );
+    return this.validacion;
   }
 }
