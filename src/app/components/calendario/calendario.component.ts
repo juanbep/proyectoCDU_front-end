@@ -129,10 +129,4 @@ export class CalendarioComponent implements AfterViewInit {
     const asCelda = this.celda.nativeElement;
     this.renderer2.setStyle(asCelda, 'background-color', 'red');
   }
-
-  foods: any[] = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
-  ];
 }
