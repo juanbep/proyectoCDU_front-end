@@ -17,18 +17,21 @@
 
                 <div class="mb-4">
                     <label for="programaId" class="form-label text-black ">Programa Id</label>
-                    <input type="number" class="form-control" name="programaId" id="programaId" [(ngModel)]="opcionSeleccionadoProgId" (change)="capturarProgramaId()">
+                    <input type="number" class="form-control" name="programaId" id="programaId"
+                        [(ngModel)]="opcionSeleccionadoProgId" (change)="capturarProgramaId()">
                 </div>
 
                 <div class="mb-4">
                     <label for="estudianteId" class="form-label text-black ">Estudiante Id</label>
-                    <input type="number" class="form-control" name="estudianteId" id="estudianteId" [(ngModel)]="opcionSeleccionadoEstudId" (change)="capturarEstudianteId()">
+                    <input type="number" class="form-control" name="estudianteId" id="estudianteId"
+                        [(ngModel)]="opcionSeleccionadoEstudId" (change)="capturarEstudianteId()">
                 </div>
 
                 <div class="mb-4">
                     <label for="horarioHoraInicio" class="form-label text-black ">Hora de Inicio</label>
                     <select name="horarioHoraInicio" id="horarioHoraInicio" [(ngModel)]="opcionSeleccionadoInicio"
-                        (change)="capturarHoraInicio()" class="form-select text-black" aria-label="Default select example">
+                        (change)="capturarHoraInicio()" class="form-select text-black"
+                        aria-label="Default select example">
                         <option value="" disabled selected>Selecciona una hora</option>
                         <option *ngFor="let dato of listHorasInicio">{{dato}}
                         </option>
@@ -37,8 +40,9 @@
 
                 <div class="mb-4">
                     <label for="horarioHoraFin" class="form-label text-black ">Hora de Fin</label>
-                    <select name="horarioHoraFin" id="horarioHoraFin" [(ngModel)]="opcionSeleccionadoFin" (click)="mostrarHorarioFin()"
-                        (change)="capturarHoraFin()" class="form-select text-black" aria-label="Default select example">
+                    <select name="horarioHoraFin" id="horarioHoraFin" [(ngModel)]="opcionSeleccionadoFin"
+                        (click)="mostrarHorarioFin()" (change)="capturarHoraFin()" class="form-select text-black"
+                        aria-label="Default select example">
                         <option value="" disabled selected>Selecciona una hora</option>
                         <option *ngFor="let dato of listHorasFin">{{dato}}
                         </option>
@@ -49,14 +53,15 @@
                     <div class="">
                         <div class="row col-md-12 col-lg-12">
                             <div class="col col-md-6">
-                                <label for="fechaInicio" class="form-label text-black ">Fecha de inicio<small></small></label>
-                                <input class="form-control w-100" type="date" id="fechaInicio"  name="fechaInicio" [(ngModel)]="opcionSeleccionadoInicioDate" (change)="capturarFechasInicio()">
+                                <label for="fechaInicio" class="form-label text-black ">Fecha de inicio</label>
+                                <input class="form-control w-100" type="date" id="fechaInicio" name="fechaInicio"
+                                    [(ngModel)]="opcionSeleccionadoInicioDate" (change)="capturarFechasInicio()">
                             </div>
-            
-                            <div class="ol col-md-6">
-                                <label for="fechaFin" class="form-label text-black ">Fecha de final<small></small></label>
-                                <input class="form-control w-100" type="date" id="fechaFin"  name="fechaFin" [(ngModel)]="opcionSeleccionadoFinDate" (change)="capturarFechasFin()">
 
+                            <div class="ol col-md-6">
+                                <label for="fechaFin" class="form-label text-black ">Fecha de final</label>
+                                <input class="form-control w-100" type="date" id="fechaFin" name="fechaFin"
+                                    [(ngModel)]="opcionSeleccionadoFinDate" (change)="capturarFechasFin()">
                             </div>
                         </div>
                     </div>
@@ -67,7 +72,7 @@
                     <div class="container text-center">
                         <div class="col col-md-12 col-sm-12 col-1">
                             <div class="form-check form-check-inline" *ngFor="let dias of listDias">
-                                <input class="form-check-input" type="checkbox" [(ngModel)]="dias.checked" (change)="mostrardias()"/>
+                                <input class="form-check-input" type="checkbox" [(ngModel)]="dias.checked" />
                                 <label class="text-black">{{dias.nombre}}</label>
                             </div>
                         </div>
@@ -77,7 +82,8 @@
                 <div class="container w-100 my-5">
                     <div class="row">
                         <div class="col">
-                            <button type="submit" name="guardar" id="guardar" class="btn btn-primary w-100 my-1">
+                            <button type="submit" name="guardar" id="guardar" class="btn btn-primary w-100 my-1"
+                                (click)="createHorario()">
                                 <div class="row align-items-center">
                                     <div class="col-12 text-center">
                                         Agregar
@@ -101,6 +107,4 @@
             </div>
         </div>
     </div><br>
-
-    
 </div>
