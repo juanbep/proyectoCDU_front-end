@@ -68,7 +68,7 @@ export class FormEditarGestionEscenarioComponent implements OnInit {
     this.editarEscenario();
   }
   convertirEscenario(): void {
-    this.escenarioAux.escenarioNombre = this.profileForm.value.nombreEscenario;
+    this.escenarioAux.escenarioNombre = this.escenario.escenarioNombre;
     this.escenarioAux.escenarioDescripcion = this.profileForm.value.descripcionEscenario;
     this.escenarioAux.escenarioFoto = this.profileForm.value.imagenEscenario;
     if (this.profileForm.value.estadoEscenario == 'Habilitado') {
