@@ -19,11 +19,11 @@ export class HorarioService {
   }
 
   create(horario: Horario):Observable<Horario>{
-    return this.http.post<Horario>(this.url, Horario);
+    return this.http.post<Horario>(this.url, horario);
   }
 
   createPk(horarioPk: HorarioPK):Observable<HorarioPK>{
-    return this.http.post<HorarioPK>(this.url, HorarioPK);
+    return this.http.post<HorarioPK>(this.url, horarioPk);
   }
 
    //eliminar una reserva 

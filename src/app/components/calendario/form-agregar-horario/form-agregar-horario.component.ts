@@ -107,7 +107,7 @@ export class FormAgregarHorarioComponent implements OnInit {
     this.getObjUsuario();
     this.getObjEscenario();
 
-    this.horario.horarioEstado = 'fijo';
+    this.horario.horarioEstado = '1';
     this.horario.horarioPrograma = this.programaAux;
     this.horario.horarioUsuario = this.usuarioAux;
     this.horario.horarioEscenario = this.escenarioAux;

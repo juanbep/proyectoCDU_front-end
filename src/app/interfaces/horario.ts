@@ -5,8 +5,8 @@ import { Usuario } from "./usuario";
 
 export class Horario {
     horarioEstado: string = "";
-    horarioPrograma: Programa = new Programa();
-    horarioUsuario: Usuario = new Usuario();
     horarioEscenario: Escenario = new Escenario();
     pk: HorarioPK =  new HorarioPK();
+    horarioUsuario: Usuario = new Usuario();
+    horarioPrograma: Programa = new Programa();
 }
