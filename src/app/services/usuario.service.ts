@@ -12,7 +12,7 @@ export class UsuarioService {
 
   constructor(private http:HttpClient) { }
 
-  getEstudianteInfo():Observable<Usuario[]>{
+  getUsuarioInfo():Observable<Usuario[]>{
     return this.http.get<Usuario[]>(this.url)
   }
 }
