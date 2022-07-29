@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { HorarioPK } from 'src/app/interfaces/horario-pk';
 import { Horario } from 'src/app/interfaces/horario';
 import { HorarioService } from 'src/app/services/horario.service';
+import { ProgramaService } from 'src/app/services/programa.service';
+import { Programa } from 'src/app/interfaces/programa';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Usuario } from 'src/app/interfaces/usuario';
 
 @Component({
   selector: 'app-form-agregar-horario',
@@ -46,10 +50,34 @@ export class FormAgregarHorarioComponent implements OnInit {
   ];
 
   listDiasAux: any[] = [];
+  listProgramas: Programa[] = [];
+  listEstudiante: Usuario[] = [];
 
-  constructor(private HorarioService: HorarioService, private route: Router) {}
+  aux: any
+  aux2: any
+
+  constructor(private HorarioService: HorarioService, 
+              private programaService: ProgramaService,
+              private usuarioService: UsuarioService,
+              private route: Router) {}
 
   ngOnInit(): void {
+    this.programaService.getProgramaInfo().subscribe((e) => {
+      this.listProgramas = e;
+      for (let i = 0; i < this.listProgramas.length; i++) {
+        this.aux = this.listProgramas[i].programaId;
+        console.log('Id de programas: ', this.aux);
+      }
+    });
+
+    this.usuarioService.getEstudianteInfo().subscribe((e) => {
+      this.listEstudiante = e;
+      for (let i = 0; i < this.listEstudiante.length; i++) {
+        this.aux2 = this.listEstudiante[i].id;
+        console.log('Id de estudiantes: ', this.aux2);
+      }
+    });
+
     this.mostrarHorarioInicio();
     this.createHorario();
   }
@@ -126,37 +154,37 @@ export class FormAgregarHorarioComponent implements OnInit {
     this.listDiasAux = [];
 
     if (this.listDias[0].checked == true) {
-      this.listDiasAux[index] = 'LUNES';
+      this.listDiasAux[index] = 'lunes';
       index = index + 1;
     }
 
     if (this.listDias[1].checked == true) {
-      this.listDiasAux[index] = 'MARTES';
+      this.listDiasAux[index] = 'martes';
       index = index + 1;
     }
 
     if (this.listDias[2].checked == true) {
-      this.listDiasAux[index] = 'MIERCOLES';
+      this.listDiasAux[index] = 'miercoles';
       index = index + 1;
     }
 
     if (this.listDias[3].checked == true) {
-      this.listDiasAux[index] = 'JUEVES';
+      this.listDiasAux[index] = 'jueves';
       index = index + 1;
     }
 
     if (this.listDias[4].checked == true) {
-      this.listDiasAux[index] = 'VIERNES';
+      this.listDiasAux[index] = 'viernes';
       index = index + 1;
     }
 
     if (this.listDias[5].checked == true) {
-      this.listDiasAux[index] = 'SABADO';
+      this.listDiasAux[index] = 'sabado';
       index = index + 1;
     }
 
     if (this.listDias[6].checked == true) {
-      this.listDiasAux[index] = 'DOMINGO';
+      this.listDiasAux[index] = 'domingo';
       index = index + 1;
     }
     this.mostrardias();
@@ -208,5 +236,9 @@ export class FormAgregarHorarioComponent implements OnInit {
   imprimirHora() {
     console.log('Entrando a imprimir objeto hora');
     console.log('Objeto hora pk: ', this.horario);
+  }
+
+  getProgramaId(){
+
   }
 }

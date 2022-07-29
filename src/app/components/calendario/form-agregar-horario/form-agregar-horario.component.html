@@ -17,14 +17,21 @@
 
                 <div class="mb-4">
                     <label for="programaId" class="form-label text-black ">Programa Id</label>
-                    <input type="number" class="form-control" name="programaId" id="programaId"
+                    <select name="programaId" id="programaId" class="form-select" aria-label="Default select example"
                         [(ngModel)]="opcionSeleccionadoProgId" (change)="capturarProgramaId()">
+                        <option value="" disabled selected>Seleccione una opcion</option>
+                        <option *ngFor="let item of listProgramas">{{item.programaId}}</option>
+                    </select>
                 </div>
 
                 <div class="mb-4">
                     <label for="estudianteId" class="form-label text-black ">Estudiante Id</label>
-                    <input type="number" class="form-control" name="estudianteId" id="estudianteId"
-                        [(ngModel)]="opcionSeleccionadoEstudId" (change)="capturarEstudianteId()">
+                    <select name="estudianteId" id="estudianteId" class="form-select"
+                        aria-label="Default select example" [(ngModel)]="opcionSeleccionadoEstudId"
+                        (change)="capturarEstudianteId()">
+                        <option value="" disabled selected>Seleccione una opcion</option>
+                        <option *ngFor="let item of listEstudiante">{{item.id}}</option>
+                    </select>
                 </div>
 
                 <div class="mb-4">
