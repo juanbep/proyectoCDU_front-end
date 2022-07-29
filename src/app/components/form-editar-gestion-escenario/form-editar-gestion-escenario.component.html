@@ -23,8 +23,8 @@
                 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                     <div class="mb-4">
                         <label for="nombreEscenario" class="form-label text-black ">Nombre Escenario</label>
-                        <input type="text" class="form-control" name="nombreEscenario" formControlName="nombreEscenario"
-                            value={{escenario.escenarioNombre}}>
+                        <input type="text"  class="form-control "  name="nombreEscenario" 
+                            value={{escenario.escenarioNombre}} disabled>
                     </div>
 
                     <div class="mb-4 col col-md-12 col-12 row my-2 mx-0">
@@ -40,7 +40,7 @@
                             <option *ngFor="let i of auxEstado">{{i}}</option>
                         </select>
                     </div>
-
+<!--
                     <div class="mb-4">
                         <label for="descripcionEscenario" class="form-label text-black ">Categoria Escenario</label>
                         <select formControlName="categoriaEscenario" class="form-select"
@@ -49,7 +49,7 @@
                             <option *ngFor="let item of listCategorias">{{item.categoriaNombre}}</option>
                         </select>
                     </div>
-
+-->
                     <div class="mb-4">
                         <input type="file" name="imagen" value="" placeholder="Cargar la imagen" accept="image/*"
                             formControlName="imagenEscenario" class="form-label text-black ">

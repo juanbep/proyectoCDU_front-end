@@ -1,8 +1,8 @@
 .div_caption{
-    background: linear-gradient(to right,  rgb(187, 1, 1), rgb(226, 12, 12) , rgb(165, 5, 5));
+    background: linear-gradient(to right,  rgb(245, 243, 243), rgb(248, 248, 248) , rgb(253, 251, 251));
 }
 .tr_thead{
-    background: linear-gradient(to right,  rgb(187, 1, 1), rgb(226, 12, 12) , rgb(165, 5, 5));
+    background: linear-gradient(to right,  rgb(252, 250, 250), rgb(252, 250, 250) , rgb(252, 250, 250));
 }
 .btn_nuevoEscenario{
     border-right: 1px solid #041544;

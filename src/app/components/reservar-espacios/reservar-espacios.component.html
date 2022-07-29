@@ -4,8 +4,11 @@
         <div class="row justify-content-md-center" >
             <div class="col-12 col-md-6 col-lg-4" *ngFor="let categoria of categorias">
                 <div class="card">
-                    <a routerLink={{categoria.categoriaUrl}} class="stretched-link">
-                        <img src="../assets/images/espacios_cdu/imagenPrueba.png" class="card-img-top" alt="COLISEO">
+                    <a routerLink={{categoria.categoriaUrl}} class="stretched-link" *ngIf="categoria.categoriaNombre=='CDU'">
+                        <img src="../assets/cdu.png" class="card-img-top" width="500px" height="300px" alt="COLISEO">
+                    </a>
+                    <a routerLink={{categoria.categoriaUrl}} class="stretched-link" *ngIf="categoria.categoriaNombre=='DIAMANTE'">
+                        <img src="../assets/diamante.jpg" class="card-img-top" width="500px" height="300px" alt="COLISEO">
                     </a>
                     <div class="card-body">
                         <h5 class="card-title text-center">{{categoria.categoriaNombre}}</h5>
