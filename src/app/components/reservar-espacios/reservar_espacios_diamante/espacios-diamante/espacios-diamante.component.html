@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row g-3">
             <ng-container *ngFor="let escenario of escenariosDiamante">
-                <ng-container *ngIf="escenario.escenarioCategoria.categoriaNombre == 'Centro Deportivo Universitario El Diamante'">
+                <ng-container *ngIf="escenario.escenarioCategoria.categoriaNombre == 'diamante'">
                     <div class="col-12 col-md-6 col-lg-4" *ngIf="escenario.escenarioEstado == '1' ">
                         <div class="card">
                             <a routerLink={{escenario.escenarioUrl}} class="stretched-link">

@@ -75,8 +75,8 @@ export class FormAgregarHorarioComponent implements OnInit {
     this.obtenerDias();
     this.createHorarioPk();
     this.horario.horarioEstado = 'fijo';
-    this.horario.programaId = this.verProgramaId;
-    this.horario.usuarioId = this.verEstudianteId;
+    //this.horario.programaId = this.verProgramaId;
+    //this.horario.usuarioId = this.verEstudianteId;
 
     for (let index = 0; index < this.listaHorarioPk.length; index++) {
       this.horario.pk = this.listaHorarioPk[index];

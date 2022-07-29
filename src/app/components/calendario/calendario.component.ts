@@ -31,7 +31,7 @@ declare function greet(): void;
 export class CalendarioComponent implements AfterViewInit {
   horarios: Horario[] = [];
   myScriptElement: HTMLScriptElement;
-
+  
   @ViewChild('martes18', { static: false }) public celda: any;
   @ViewChildren('celda') public misCeldas!: QueryList<ElementRef>;
 
@@ -71,6 +71,7 @@ export class CalendarioComponent implements AfterViewInit {
       'yellow',
     ];
     let cont: number = 0;
+    let text: string = "";
     this.horarioservice.getHorariosInfo().subscribe((e) => {
       this.horarios = e;
       //console.log(this.horarios);
@@ -90,7 +91,9 @@ export class CalendarioComponent implements AfterViewInit {
             //console.log(asCelda);
             this.renderer2.setStyle(asCelda, 'background-color', colores[cont]);
             //console.log(elemento.usuarioId);
-            asCelda.innerText = "reservado";
+            text = "User id: "+elemento.horarioUsuario.id + "\nNombre: "+elemento.horarioUsuario.primerApellido+"\nPrograma: "+elemento.horarioPrograma.programaNombre;
+            
+            asCelda.innerText = text;
             break;
           }
           cont++;
@@ -118,9 +121,9 @@ export class CalendarioComponent implements AfterViewInit {
     this.horarioservice.getHorariosInfo().subscribe((e) => {
       this.horarios = e;
       console.log(this.horarios);
-      this.horarios.forEach((elemento) =>{
-  
-      });
+      /*this.horarios.forEach((elemento) =>{
+        console.log(elemento.horarioUsuario);
+      });*/
     });
     //this.texto = "hola mundo";
   }
