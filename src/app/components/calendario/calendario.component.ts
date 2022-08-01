@@ -21,6 +21,7 @@ import { SelectorContext } from '@angular/compiler';
 import { style } from '@angular/animations';
 import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 
+
 declare function greet(): void;
 
 @Component({
@@ -45,8 +46,8 @@ export class CalendarioComponent implements AfterViewInit {
     private horarioservice: HorarioService,
     private renderer2: Renderer2
   ) {
-    this.myScriptElement = document.createElement('script');
-    this.myScriptElement.src = 'src/assets/js/horario.js';
+    this.myScriptElement = document.createElement("script");
+    this.myScriptElement.src = "src/assets/js/horario.js";
     document.body.appendChild(this.myScriptElement);
   }
 
@@ -132,4 +133,6 @@ export class CalendarioComponent implements AfterViewInit {
     const asCelda = this.celda.nativeElement;
     this.renderer2.setStyle(asCelda, 'background-color', 'red');
   }
+
+  
 }

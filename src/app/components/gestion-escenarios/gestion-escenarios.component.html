@@ -1,82 +1,125 @@
 <!--Creacion de Tabla-->
 <div class="container table-responsive">
-    <div class="">
-        <!--<caption class="text-center">Gestionar Escenarios</caption>-->
-        <br>
+  <div class="">
+    <!--<caption class="text-center">Gestionar Escenarios</caption>-->
+    <br />
 
-        <div class="row vh 100 justify-content-around align-items-center">
-            <div class="col-sm-6 rounded justify-content-center table-bordered div_caption">
-                <h2 class="text-center font-weight text-dark">Gestionar escenarios</h2>
-            </div>
-            <div class="col-sm-2 ">
-                <a href="form_crear_escenarios" class="btn btn_editar text-white font-weight rounded" role="button"
-                    aria-disabled="true">Nuevo escenario</a>
-            </div>
-        </div>
-        <br>
-        <table border="1" class="table table-bordered text-center">
-            <!--Divisiones-->
-            <thead>
-                <tr class=" tr_thead font-weight text-dark">
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Imagen</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <!--Contenido-->
-            <tbody>
-                <tr class="text-weight" *ngFor="let escenario of escenarios">
-                    <td>{{escenario.escenarioNombre}}</td>
-                    <td>{{escenario.escenarioDescripcion}}</td>
-                    <!--<td>{{escenario.escenarioFoto}}<img src="../assets/images/espacios_cdu/imagenPrueba.png" class="img-fluid rounded " alt="Responsive image"></td>-->
-                    <td>
-
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn_editar text-white font-weight" data-toggle="modal"
-                            data-target="#exampleModalCenter">
-                            ver imagen de escenario
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">imagen de escenario</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Cerrar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>{{escenario.escenarioEstado}}</td>
-                    <td>
-                        <div class="btn-toolbar">
-                            <div class="col-md-2 col-md-4 col-xs-6 " role="group">
-                                <a href="form_gestion_escenarios" class="btn btn_editar text-white font-weight rounded btn-sm"
-                                    role="button"
-                                    [routerLink]="['/form_gestion_escenarios/form', escenario.escenarioNombre]">Editar</a>
-                            </div>
-                            <div class="btn-group" role="group ">
-                                <a class="btn btn_editar text-white font-weight rounded btn-sm " role="button"
-                                    (click)='eliminarEscenario(escenario)'>Eliminar</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row vh 100 justify-content-around align-items-center">
+      <div
+        class="col-sm-6 rounded justify-content-center table-bordered div_caption"
+      >
+        <h2 class="text-center font-weight text-dark">Gestionar escenarios</h2>
+      </div>
+      <div class="col-sm-2">
+        <a
+          href="form_crear_escenarios"
+          class="btn btn_editar text-white font-weight rounded"
+          role="button"
+          aria-disabled="true"
+          >Nuevo escenario</a
+        >
+      </div>
     </div>
+    <br />
+    <table border="1" class="table table-bordered text-center">
+      <!--Divisiones-->
+      <thead>
+        <tr class="tr_thead font-weight text-dark">
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Imagen</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <!--Contenido-->
+      <tbody>
+        <tr class="text-weight" *ngFor="let escenario of escenarios">
+          <td>{{ escenario.escenarioNombre }}</td>
+          <td>{{ escenario.escenarioDescripcion }}</td>
+          <td>
+            {{ escenario.escenarioFoto
+            }}<img
+              src="../assets/images/espacios_cdu/imagenPrueba.png"
+              class="img-fluid rounded"
+              alt="Responsive image"
+            />
+          </td>
+          <td>
+            <!--Button trigger modal-->
+            <button
+              type="button"
+              class="btn btn_editar text-white font-weight"
+              data-toggle="modal"
+              data-target="#exampleModalCenter"
+            >
+              ver imagen de escenario
+            </button>
+            <!--Modal-->
+            <div
+              class="modal fade"
+              id="exampleModalCenter"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                      imagen de escenario
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body"></div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Cerrar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>{{ escenario.escenarioEstado }}</td>
+          <td>
+            <div class="btn-toolbar">
+              <div class="col-md-2 col-md-4 col-xs-6" role="group">
+                <a
+                  href="form_gestion_escenarios"
+                  class="btn btn_editar text-white font-weight rounded btn-sm"
+                  role="button"
+                  [routerLink]="[
+                    '/form_gestion_escenarios/form',
+                    escenario.escenarioNombre
+                  ]"
+                  >Editar</a
+                >
+              </div>
+              <div class="btn-group" role="group ">
+                <a
+                  class="btn btn_editar text-white font-weight rounded btn-sm"
+                  role="button"
+                  (click)="eliminarEscenario(escenario)"
+                  >Eliminar</a
+                >
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
