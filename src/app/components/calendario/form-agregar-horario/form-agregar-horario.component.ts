@@ -3,6 +3,12 @@ import { Router } from '@angular/router';
 import { HorarioPK } from 'src/app/interfaces/horario-pk';
 import { Horario } from 'src/app/interfaces/horario';
 import { HorarioService } from 'src/app/services/horario.service';
+import { ProgramaService } from 'src/app/services/programa.service';
+import { Programa } from 'src/app/interfaces/programa';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Usuario } from 'src/app/interfaces/usuario';
+import { EscenarioService } from 'src/app/services/escenario.service';
+import { Escenario } from 'src/app/interfaces/escenario';
 
 @Component({
   selector: 'app-form-agregar-horario',
@@ -10,9 +16,10 @@ import { HorarioService } from 'src/app/services/horario.service';
   styleUrls: ['./form-agregar-horario.component.css'],
 })
 export class FormAgregarHorarioComponent implements OnInit {
+
   horarioPk: HorarioPK = new HorarioPK();
-  listaHorarioPk: any[] = [];
   horario: Horario = new Horario();
+  escenario: Escenario = new Escenario();
 
   opcionSeleccionadoInicio: number = 0;
   verSeleccionInicio: number = 0;
@@ -20,8 +27,8 @@ export class FormAgregarHorarioComponent implements OnInit {
   opcionSeleccionadoFin: number = 0;
   verSeleccionFin: number = 0;
 
-  opcionSeleccionadoEstudId: number = 0;
-  verEstudianteId: number = 0;
+  opcionSeleccionadoUsuarioId: number = 0;
+  verUsuarioId: number = 0;
 
   opcionSeleccionadoProgId: number = 0;
   verProgramaId: number = 0;
@@ -34,6 +41,8 @@ export class FormAgregarHorarioComponent implements OnInit {
 
   listHorasInicio: any[] = [];
   listHorasFin: any[] = [];
+  listDiasAux: any[] = [];
+  listaHorarioPk: any[] = [];
 
   listDias: any[] = [
     { nombre: 'Lunes', checked: false },
@@ -45,13 +54,33 @@ export class FormAgregarHorarioComponent implements OnInit {
     { nombre: 'Domingo', checked: false },
   ];
 
-  listDiasAux: any[] = [];
+  listProgramas: Programa[] = [];
+  programaAux: Programa = new Programa();
 
-  constructor(private HorarioService: HorarioService, private route: Router) {}
+  listUsuario: Usuario[] = [];
+  usuarioAux: Usuario = new Usuario()
+
+  listEscenarios: Escenario[] = [];
+  escenarioAux: Escenario = new Escenario()
+
+  aux: any
+  aux2: any
+
+  constructor(private HorarioService: HorarioService, 
+              private programaService: ProgramaService,
+              private usuarioService: UsuarioService,
+              private escenarioservice: EscenarioService,
+              private route: Router) {}
 
   ngOnInit(): void {
+    this.getPrograma();
+    this.getUsuario();
+    this.getEscenario();
+
+    this.imprimirProgramas();
+    this.imprimirUsuario();
+
     this.mostrarHorarioInicio();
-    this.createHorario();
   }
 
   createHorarioPk(): void {
@@ -74,9 +103,14 @@ export class FormAgregarHorarioComponent implements OnInit {
 
     this.obtenerDias();
     this.createHorarioPk();
-    this.horario.horarioEstado = 'fijo';
-    //this.horario.programaId = this.verProgramaId;
-    //this.horario.usuarioId = this.verEstudianteId;
+    this.getObjPrograma();
+    this.getObjUsuario();
+    this.getObjEscenario();
+
+    this.horario.horarioEstado = '1';
+    this.horario.horarioPrograma = this.programaAux;
+    this.horario.horarioUsuario = this.usuarioAux;
+    this.horario.horarioEscenario = this.escenarioAux;
 
     for (let index = 0; index < this.listaHorarioPk.length; index++) {
       this.horario.pk = this.listaHorarioPk[index];
@@ -126,37 +160,37 @@ export class FormAgregarHorarioComponent implements OnInit {
     this.listDiasAux = [];
 
     if (this.listDias[0].checked == true) {
-      this.listDiasAux[index] = 'LUNES';
+      this.listDiasAux[index] = 'lunes';
       index = index + 1;
     }
 
     if (this.listDias[1].checked == true) {
-      this.listDiasAux[index] = 'MARTES';
+      this.listDiasAux[index] = 'martes';
       index = index + 1;
     }
 
     if (this.listDias[2].checked == true) {
-      this.listDiasAux[index] = 'MIERCOLES';
+      this.listDiasAux[index] = 'miercoles';
       index = index + 1;
     }
 
     if (this.listDias[3].checked == true) {
-      this.listDiasAux[index] = 'JUEVES';
+      this.listDiasAux[index] = 'jueves';
       index = index + 1;
     }
 
     if (this.listDias[4].checked == true) {
-      this.listDiasAux[index] = 'VIERNES';
+      this.listDiasAux[index] = 'viernes';
       index = index + 1;
     }
 
     if (this.listDias[5].checked == true) {
-      this.listDiasAux[index] = 'SABADO';
+      this.listDiasAux[index] = 'sabado';
       index = index + 1;
     }
 
     if (this.listDias[6].checked == true) {
-      this.listDiasAux[index] = 'DOMINGO';
+      this.listDiasAux[index] = 'domingo';
       index = index + 1;
     }
     this.mostrardias();
@@ -170,8 +204,8 @@ export class FormAgregarHorarioComponent implements OnInit {
 
   capturarEstudianteId() {
     console.log('Entrando a obtener estudiante id');
-    this.verEstudianteId = this.opcionSeleccionadoEstudId;
-    console.log('estudiante id: ', this.verEstudianteId);
+    this.verUsuarioId = this.opcionSeleccionadoUsuarioId;
+    console.log('estudiante id: ', this.verUsuarioId);
   }
 
   capturarHoraInicio() {
@@ -208,5 +242,74 @@ export class FormAgregarHorarioComponent implements OnInit {
   imprimirHora() {
     console.log('Entrando a imprimir objeto hora');
     console.log('Objeto hora pk: ', this.horario);
+  }
+
+  imprimirProgramas() {
+    console.log('Entrando a imprimir programas');
+    for (let i = 0; i < this.listProgramas.length; i++) {
+      this.aux = this.listProgramas[i].programaId;
+      console.log('Id de programas: ', this.aux);
+    }
+  }
+
+  imprimirUsuario() {
+    console.log('Entrando a imprimir usuarios');
+    for (let i = 0; i < this.listUsuario.length; i++) {
+      this.aux2 = this.listUsuario[i].id;
+      console.log('Id de estudiantes: ', this.aux2);
+    }
+  }
+
+  imprimirEscenario() {
+    console.log('Entrando a imprimir escenarios');
+    for (let i = 0; i < this.listEscenarios.length; i++) {
+      console.log('Id de Escenarios: ', this.listEscenarios[i]);
+    }
+  }
+
+  getEscenario(){
+    this.escenarioservice.getEscenariosInfo().subscribe((e) => {
+      this.listEscenarios = e;
+    });
+  }
+
+  getPrograma(){
+    this.programaService.getProgramaInfo().subscribe((e) => {
+      this.listProgramas = e;
+    });
+  }
+
+  getUsuario(){
+    this.usuarioService.getUsuarioInfo().subscribe((e) => {
+      this.listUsuario = e;
+    });
+  }
+
+  getObjPrograma(){
+    console.log('Entrando a get obj programa');
+    for(let index = 0 ; index < this.listProgramas.length ; index++){
+      if(this.listProgramas[index].programaId == this.verProgramaId){
+          console.log('Entrando al if');
+          Object.assign(this.programaAux, this.listProgramas[index])
+      }
+    }
+  }
+
+  getObjUsuario(){
+    console.log('Entrando a get obj usuario');
+    for(let index = 0 ; index < this.listUsuario.length ; index++){
+      if(this.listUsuario[index].id == this.verUsuarioId){
+        Object.assign(this.usuarioAux , this.listUsuario[index])
+      }
+    }
+  }
+
+  getObjEscenario(){
+    console.log('Entrando a get obj escenario');
+    for(let index = 0 ; index < this.listEscenarios.length ; index++){
+      if(this.listEscenarios[index].escenarioNombre == "Cancha de Fútbol"){
+        Object.assign(this.escenarioAux , this.listEscenarios[index])
+      }
+    }
   }
 }

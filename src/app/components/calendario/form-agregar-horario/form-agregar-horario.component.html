@@ -17,14 +17,21 @@
 
                 <div class="mb-4">
                     <label for="programaId" class="form-label text-black ">Programa Id</label>
-                    <input type="number" class="form-control" name="programaId" id="programaId"
+                    <select name="programaId" id="programaId" class="form-select" aria-label="Default select example"
                         [(ngModel)]="opcionSeleccionadoProgId" (change)="capturarProgramaId()">
+                        <option value="" selected>Seleccione una opcion</option>
+                        <option *ngFor="let item of listProgramas">{{item.programaId}}</option>
+                    </select>
                 </div>
 
                 <div class="mb-4">
                     <label for="estudianteId" class="form-label text-black ">Estudiante Id</label>
-                    <input type="number" class="form-control" name="estudianteId" id="estudianteId"
-                        [(ngModel)]="opcionSeleccionadoEstudId" (change)="capturarEstudianteId()">
+                    <select name="estudianteId" id="estudianteId" class="form-select"
+                        aria-label="Default select example" [(ngModel)]="opcionSeleccionadoUsuarioId"
+                        (change)="capturarEstudianteId()">
+                        <option value=""  selected>Seleccione una opcion</option>
+                        <option *ngFor="let item of listUsuario">{{item.id}}</option>
+                    </select>
                 </div>
 
                 <div class="mb-4">
@@ -32,7 +39,7 @@
                     <select name="horarioHoraInicio" id="horarioHoraInicio" [(ngModel)]="opcionSeleccionadoInicio"
                         (change)="capturarHoraInicio()" class="form-select text-black"
                         aria-label="Default select example">
-                        <option value="" disabled selected>Selecciona una hora</option>
+                        <option value="" selected >Selecciona una hora</option>
                         <option *ngFor="let dato of listHorasInicio">{{dato}}
                         </option>
                     </select>
@@ -43,7 +50,7 @@
                     <select name="horarioHoraFin" id="horarioHoraFin" [(ngModel)]="opcionSeleccionadoFin"
                         (click)="mostrarHorarioFin()" (change)="capturarHoraFin()" class="form-select text-black"
                         aria-label="Default select example">
-                        <option value="" disabled selected>Selecciona una hora</option>
+                        <option value="" selected >Selecciona una hora</option>
                         <option *ngFor="let dato of listHorasFin">{{dato}}
                         </option>
                     </select>
