@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Escenario } from 'src/app/interfaces/escenario';
 import { EscenarioService } from 'src/app/services/escenario.service';
 
@@ -9,6 +9,8 @@ import { EscenarioService } from 'src/app/services/escenario.service';
 })
 export class EspaciosCduComponent implements OnInit {
 
+  @ViewChild('cards', { static: false }) public card: any;
+  @ViewChildren('cards') public misCards!: QueryList<ElementRef>;
 
   escenariosCDU: Escenario[]=[];
 
@@ -18,6 +20,7 @@ export class EspaciosCduComponent implements OnInit {
     this.escenarioservice.getEscenariosInfo().subscribe(
       e => {this.escenariosCDU=e; console.log(this.escenariosCDU)}
     );
+    console.log(this.card.get.nativeElement);
   }
 
 }
