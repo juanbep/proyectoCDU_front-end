@@ -36,7 +36,7 @@ const appRoutes:Routes=[
   {path:'espacios_diamante', component:EspaciosDiamanteComponent},
   {path:'reservar_espacios', component:ReservarEspaciosComponent},
   {path:'canchas_cdu', component:CanchasComponent},
-  //{path:'calendario', component:CalendarioComponent},
+  {path:'calendario', component:CalendarioComponent},
   {path:'gestion_escenarios', component:GestionEscenariosComponent},
   {path:'form_gestion_escenarios/form/:id', component:FormEditarGestionEscenarioComponent},
   {path:'form_crear_escenarios', component:FormCrearGestionEscenarioComponent},

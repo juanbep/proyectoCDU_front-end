@@ -74,6 +74,7 @@ export class CalendarioComponent implements AfterViewInit {
     ];
     let cont: number = 0;
     let text: string = '';
+    let band: number = 0;
     this.horarioservice.getHorariosInfo().subscribe((e) => {
       this.horarios = e;
       //console.log(this.horarios);
@@ -81,6 +82,10 @@ export class CalendarioComponent implements AfterViewInit {
         if (elemento.horarioEscenario.escenarioUrl == this.router.url) {
           this.celdaAux =
             elemento.pk.horarioDia + elemento.pk.horarioHoraInicio;
+          let horaFin = elemento.pk.horarioHoraFin;
+          let horaInicio = elemento.pk.horarioHoraInicio;
+          let difHora = horaFin - horaInicio;
+          //console.log(difHora);
           //console.log(this.celdaAux);
           let i: number;
           for (i = 0; i < this.misCeldas.length; i++) {
@@ -99,18 +104,31 @@ export class CalendarioComponent implements AfterViewInit {
                 colores[cont]
               );
               //console.log(elemento.usuarioId);
-              text =
-                'User id: ' +
-                elemento.horarioUsuario.id +
-                '\nNombre: ' +
-                elemento.horarioUsuario.primerApellido +
-                '\nPrograma: ' +
-                elemento.horarioPrograma.programaNombre;
+              if (band == 0) {
+                text =
+                  'User id: ' +
+                  elemento.horarioUsuario.id +
+                  '\nNombre: ' +
+                  elemento.horarioUsuario.primerApellido +
+                  '\nPrograma: ' +
+                  elemento.horarioPrograma.programaNombre;
 
-              asCelda.innerText = text;
-              break;
+                asCelda.innerText = text;
+              }
+              if (difHora > 1) {
+                this.celdaAux =
+                  elemento.pk.horarioDia + (elemento.pk.horarioHoraInicio + 1);
+                  elemento.pk.horarioHoraInicio++;  
+                band = 1; 
+                difHora--;
+              }else{
+                break;
+              }
+              //break;
             }
-            cont++;
+            if (band == 0) {
+              cont++;
+            }
             if (cont > colores.length) {
               cont = 0;
             }
